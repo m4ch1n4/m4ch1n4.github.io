@@ -1,26 +1,37 @@
 <!DOCTYPE html>
 <html lang = "en-US">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content=""> 
-<link rel="shortcut icon" href="http://www.">
-<link rel="apple-touch-icon" sizes="57x57" href="http://">
-<link rel="apple-touch-icon" sizes="72x72" href="http://">
-<link rel="apple-touch-icon" sizes="114x114" href="http://www.">
-<link rel="apple-touch-icon" sizes="144x144" href="http://www.">
+		<meta charset="utf-8">       
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
 <title>M4CH1N4</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="google-site-verification" content="">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style_m4ch1n4.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script> 
+		<link rel="shortcut icon" href="http://www.">
+		<link rel="apple-touch-icon" sizes="57x57" href="http://">
+		<link rel="apple-touch-icon" sizes="72x72" href="http://">
+		<link rel="apple-touch-icon" sizes="114x114" href="http://www.">
+		<link rel="apple-touch-icon" sizes="144x144" href="http://www.">
+
 <!-- This part is for SEO -->
 <!-- / google, or Yoast or whatever -->
 
 </head>
 <body style="background-color:#f6f6f3;">
 <!-- Main Container -->
-<div>
+<div class="pageWarpper">
 <header> 
-<h1>Hello World!</h1>
-<nav>
-      <ul>
+<nav class="navWarpper">
+    <div>
+     <a href="#mainlogo"></a>
+	</div>
+       <ul>
         <li><a class="nav1" href="#hero">Inicio</a></li>
         <li><a class="nav1" href="#about">suck it!</a></li>
         <li><a class="nav1" href="#contact">Linkit</a></li>
@@ -38,14 +49,10 @@
 </body>
 <!-- The conventions of capitalism; consumerism Made me use ADOBE DW©. This site is a pice of art,these per se the manifesto. F.A.T. isnotdead. When I Use NANO/pico for the first time,I love the editor and flip out. I really don't like VIM is truly a hell,a paradox, also I compile with Emacs (lamer voice)) 
  
-     ,▄▄▄    ▄▄▄,    4█      ▄▄▄▄'▄ ▄▄▄▄▄ ▄▄▄▄▄  ╓▌   ▄▄▄  ╓▄▄▄    █▌
-   ~  ,▓▓▄  ▐▓▓└     ▓▓µ   ╓▓▀  ╘▓▓  ▐▓▌   ▓▓'^▀▀▓▓   └▀▓▄ ^╙▓╘   j▓▓⌐
-       ▓▐▓  ▌▓▓     ▐▀▓▓   ▓▓    .█  j▓▌ 
+
      ,▄▄▄    ▄▄▄,    3█      ▄▄▄▄'▄ ▄▄▄▄▄ ▄▄▄▄▄  ╓▌   ▄▄▄  ╓▄▄▄    █▌
       ,▓▓▄  ▐▓▓└     ▓▓µ   ╓▓▀  ╘▓▓  ▐▓▌  '▓▓  ▀▀▓▓   └▀▓▄ ^╙▓╘   j▓▓⌐
        ▓▐▓  ▌▓▓     ▐▀▓▓   ▓▓    .█  j▓▌     ,▄▄▄    ▄▄▄,    4█      ▄▄▄▄'▄ ▄▄▄▄▄ ▄▄▄▄▄  ╓▌   ▄▄▄  ╓▄▄▄    █▌
-   ~  ,▓▓▄  ▐▓▓└     ▓▓µ   ╓▓▀  ╘▓▓  ▐▓▌   ▓▓'^▀▀▓▓   └▀▓▄ ^╙▓╘   j▓▓⌐
-       ▓▐▓  ▌▓▓     ▐▀▓▓   ▓▓    .█  ▐▓▌
      ,▄▄▄    ▄▄▄,    3█      ▄▄▄▄'▄ ▄▄▄▄▄ ▄▄▄▄▄  ╓▌   ▄▄▄  ╓▄▄▄    █▌
       ,▓▓▄  ▐▓▓└     ▓▓µ   ╓▓▀  ╘▓▓  ▐▓▌  '▓▓  ▀▀▓▓   └▀▓▄ ^╙▓╘   j▓▓⌐
        ▓▐▓  ▌▓▓     ▐▀▓▓   ▓▓    .π  j▓▌▄▄▄▓▓    ▓▓    ▐╙▓▓  ▌    ▓└▓▓
@@ -55,9 +62,6 @@
        ▓ ▓▌▐'▓▌    ╓▓▄▓▓▌  ▓▓     ▄  j▓▌⌠╘└▓▓    ▓▓    ▐═^▀▓▄▌   ╓▓▄▓▓▄
        ▓ └▓▌ ▓▓    ▓∩  ▓▓─ ╙▓▄   ▐▌  |▓▌   ▓▓    ▓▓    ▐▄  ▀▓▌   ▓─  ▓▓─ ,µ
      └▀▀▀▀▀▐▀▀▀█┘▀▀▀▀▀▀▀▀▀▀ └▀██▀▀  ▀▀▀▀█²▀▀▀▀Γ██████ ████  ▐▌"▀▀▀▀▀▀▀▀▀▀▄  ▓▓    ▓▓    ▐╙▓▓  ▌    ▓└▓▓
-       ▓ ▓▌▐'▓▌    ╓▓▄▓▓▌  ▓▓     ▄  j▓▌   ▓▓    ▓▓    ▐═^▀▓▄▌   ╓▓▄▓▓▄
-       ▓ └▓▌ ▓▓    ▓∩  ▓▓─ ╙▓▄   ▐▌  |▓▌   ▓▓    ▓▓    ▐▄  ▀▓▌   ▓─  ▓▓─ ,µ
-     └▀▀▀▀▀▐▀▀▀█┘▀▀▀▀▀▀▀▀▀▀ └▀██▀▀  ▀▀▀▀█²▀▀▀▀Γ██████ ████  ▐▌"▀▀▀▀▀▀▀▀▀▀▄▓▓    ▓▓    ▐╙▓▓  ▌    ▓└▓▓
        ▓ ▓▌▐'▓▌    ╓▓▄▓▓▌  ▓▓     ▄  j▓▌⌠╘└▓▓    ▓▓    ▐═^▀▓▄▌   ╓▓▄▓▓▄
        ▓ └▓▌ ▓▓    ▓∩  ▓▓─ ╙▓▄   ▐▌  |▓▌   ▓▓    ▓▓    ▐▄  ▀▓▌   ▓─  ▓▓─ ,µ
      └▀▀▀▀▀▐▀▀▀█┘▀▀▀▀▀▀▀▀▀▀ └▀██▀▀  ▀▀▀▀█²▀▀▀▀Γ██████ ████  ▐▌"▀▀▀▀▀▀▀▀▀▀~╘
