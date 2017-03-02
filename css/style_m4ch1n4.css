@@ -95,6 +95,30 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+.pageWarpper {
+	width: 1399px;
+	height: 800px;
+	background-image: url("../[TU_IMAGEN_AQUÍ].png");
+	
+}
+
+.navWarpper {width: 1384px;
+	height: 95px;
+	background-color: #040202;
+}
+#mainlogo {
+	
+		
+
+	width:311px;
+    height:55px;
+	padding-top:20.8px; 
+    padding-left:91px;
+    padding-right:982px;
+	padding-bottom:16px;
+}
+
+
 
 
 
