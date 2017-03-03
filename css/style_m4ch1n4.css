@@ -91,14 +91,50 @@ textarea {
     padding: 0.2em 0;
 }
 
+/*==========================================================================
+   Author's Fonts Familys
+   ==========================================================================*/
+
+@font-face{
+	font-family: 'Andale Mono V1';
+	src: url('../fonts/OnlineWebFonts_COM_e308aef9b593e24644556b23ff92aca5/Andale Mono V1/Andale Mono V1.eot') format("eot");
+
+}
+@font-face{
+	font-family: 'Andale Mono V2';
+	src: url('../fonts/OnlineWebFonts_COM_e308aef9b593e24644556b23ff92aca5/Andale Mono V2/Andale Mono V2.eot') format("eot");
+
+}
+@font-face{
+	font-family: 'Old Times American W00 Italic';
+	src: url('../fonts/OnlineWebFonts_COM_ec56f2e011d3dbc8d885dca41a07bd78/Old Times American W00 Italic/Old Times American W00 Italic.eot') format("eot");
+
+}
+@font-face{
+	font-family:'Old Times American W00 Heavy It';
+	src: url('../fonts/OnlineWebFonts_COM_ec56f2e011d3dbc8d885dca41a07bd78/Old Times American W00 Heavy It/Old Times American W00 Heavy It.eot') format("eot");
+
+}
+@font-face{
+	font-family: 'Old Times American W00 Heavy';
+	src: url('../fonts/OnlineWebFonts_COM_ec56f2e011d3dbc8d885dca41a07bd78/Old Times American W00 Heavy/Old Times American W00 Heavy.eot') format("eot");
+
+}
+@font-face{
+	font-family: 'Old Times American Titling W00';
+	src: url('../fonts/OnlineWebFonts_COM_ec56f2e011d3dbc8d885dca41a07bd78/Old Times American Titling W00/Old Times American Titling W00.eot') format("eot");
+}
+@font-face{
+	font-family:'Old Times American W00 Regular';
+	src: url('../fonts/OnlineWebFonts_COM_ec56f2e011d3dbc8d885dca41a07bd78/Old Times American W00 Regular/Old Times American W00 Regular.eot') format("eot");
+
+}
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
 .pageWarpper {
 	width: 1400px;
 	height: 800px;
-	background-image: url("../img/TU_IMAGEN_AQ .jpg");
 	background-repeat:no-repeat;
 	background-size:contain;
 	background-position:center;
@@ -128,12 +164,11 @@ textarea {
 	
 	
 }
-#or {
-	font-family: AndaleMono;
+#or{
 	font-size-adjust: auto;
 	font:normal;
 	list-style:none;
-	margin:inherit;
+	margin:inhe,it;
 	padding:inherit;
 	height: 12px;
 }
@@ -145,7 +180,8 @@ textarea {
 	float:left;
 }
 .nav1{
-	line-height: 40px;
+    font-family:"Andale Mono V1", 'Andale Mono'; 	
+	line-height:40px;
 	font-kerning: none;
 	letter-spacing: 4px;
     text-decoration:none;
