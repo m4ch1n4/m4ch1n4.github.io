@@ -1,3 +1,4 @@
+@import url("../webfonts/Old_Times_American_W00_Italic/stylesheet.css");
 /*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
 
 /*
@@ -208,19 +209,25 @@ textarea {
  }
 /* para botones de lista en navegación*/
 .main{
-	align-content: center;
+	
 	max-width: inherit;
 	height:600px;
 }
 
 .articulo h1{
-	font-family:'Old Times American W00 Italic';
-	margin: auto;
+	align-content: center;
+	margin: inherit;
 	width: 710px;
 	height: 130px;
 	text-align: center;
 	font-size: 60px;
 	line-height: 80px;
+	padding-top:267;
+	padding-bottom:303;
+	padding-left: 789;
+	margin-left: auto;
+	margin-right: auto;
+	float: inherit;
 }
 
 /* ==========================================================================
@@ -392,4 +399,7 @@ textarea {
         page-break-after: avoid;
     }
 }.li2 {
+}
+body {
+	font-family: Old Times American W00 Italic;
 }
