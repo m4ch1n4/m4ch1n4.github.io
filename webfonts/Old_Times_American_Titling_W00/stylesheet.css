@@ -1,0 +1,8 @@
+@font-face {
+	font-family: 'Old Times American Titling W00';
+	src: url('Old Times American Titling W00.eot');
+	src: url('Old Times American Titling W00.eot?#iefix') format('embedded-opentype'),
+		url('Old Times American Titling W00.woff') format('woff'),
+		url('Old Times American Titling W00.ttf') format('truetype'),
+		url('Old Times American Titling W00.svg') format('svg');
+}
