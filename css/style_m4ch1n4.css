@@ -220,8 +220,14 @@ textarea {
 	width: 710px;
 	height: 130px;
 	text-align: center;
-	font-size: 60px;
+	font-kerning: normal;
+	font-feature-settings: normal;
+	font-size-adjust: auto;
+	font-variant-alternates: normal;
+	font-variant-ligatures: normal;
+	letter-spacing: normal;
 	line-height: 80px;
+	font-size: 60px;
 	padding-top:267;
 	padding-bottom:303;
 	padding-left: 789;
@@ -401,5 +407,5 @@ textarea {
 }.li2 {
 }
 body {
-	font-family: Old Times American W00 Italic;
+	font-family:"Old Times American W00 Italic";
 }
