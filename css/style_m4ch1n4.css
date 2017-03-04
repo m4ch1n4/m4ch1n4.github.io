@@ -160,12 +160,12 @@ textarea {
 
 .aver{
 	margin: auto;
-	padding-top:12px;
-	width: 951.5px;
-	float:right;
+	padding-top: 3px;
+	width: 924.5px;
+	float: right;
 	line-height: 40px;
-	
-	
+	font-language-override: spanish;
+	font-family: inherit;
 }
 #or{
 	font-size-adjust: auto;
@@ -182,8 +182,7 @@ textarea {
 	height: 12px;
 	float:left;
 }
-.nav1{
-    font-family:"Andale Mono V1", 'Andale Mono'; 	
+.nav1{	
 	line-height:40px;
 	font-kerning: none;
 	letter-spacing: 4px;
@@ -209,7 +208,6 @@ textarea {
  }
 /* para botones de lista en navegación*/
 .main{
-	
 	max-width: inherit;
 	height:600px;
 }
@@ -406,6 +404,18 @@ textarea {
     }
 }.li2 {
 }
-body {
-	font-family:"Old Times American W00 Italic";
+
+
+.pageWarpper.fixed header .navWarpper.fixed.nav .aver div #or .nav1 .nav1 {
+	font-family: Andale Mono;}
+@font-face {
+	font-family: 'Old Times American W00 Italic';
+	src: url('Old Times American W00 Italic.eot');
+	src: url('Old Times American W00 Italic.eot?#iefix') format('embedded-opentype');
+}.pageWarpper.fixed .main.main .articulo.article h1 span {
+	font-family: Old Times American W00 Italic;
+}
+
+.pageWarpper.fixed .main.main .articulo.article h1 span {
+	font-family: Old Times American W00 Italic;
 }
