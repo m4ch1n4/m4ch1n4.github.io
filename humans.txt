@@ -3,13 +3,13 @@
 
 # TEAM
 
-    <R.J.M.M> -- <PIRATE> -- <@RJ_M_M>
+    <name> -- <role> -- <twitter>
 
 # THANKS
 
-    <ALL YOU DEV>
+    <name>
 
 # TECHNOLOGY COLOPHON
 
-    CSS3, HTML5
-    Apache Server Configs, jQuery, Modernizr, Normalize.css
+    HTML5, CSS3
+    jQuery, Modernizr
