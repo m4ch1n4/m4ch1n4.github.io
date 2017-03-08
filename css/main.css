@@ -4,6 +4,7 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+	background-image: url(../img/img/prueba.svg);
 }
 
 ::-moz-selection {
@@ -57,7 +58,9 @@ textarea {
    ========================================================================== */
 
 body {
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+    font: 12px/26px  Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
+	
+		
 }
 
 .wrapper {
@@ -70,22 +73,22 @@ body {
    =================== */
 
 .header-container {
-    border-bottom: 20px solid #e44d26;
+    border-bottom: 20px solid #000000;
 }
 
 .footer-container,
 .main aside {
-    border-top: 20px solid #e44d26;
+    border-top: 20px solid #000000;
 }
 
 .header-container,
 .footer-container,
 .main aside {
-    background: #f16529;
+    background: black;
 }
 
 .title {
-    color: white;
+    color: antiquewhite;
 }
 
 /* ==============
@@ -105,10 +108,9 @@ nav a {
 
     text-align: center;
     text-decoration: none;
-    font-weight: bold;
 
     color: white;
-    background: #e44d26;
+    
 }
 
 nav a:hover,
@@ -154,13 +156,36 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
+.logo-style{
+	display: block;
+	width: 258px;
+	min-width: 258px;
+	min-height: auto;
+	max-width: auto;
+	margin-left: 78px;
+	padding-bottom: 0px;
+	padding-top: 13px;
+	padding-left: 0px;
+	margin-bottom: -93px;
+}
 
 
-
-
-
-
-
+.style-nav ul li a {
+	width: 500PX;
+	height: 12PX;
+	text-decoration: none;
+	color: #FFFFFF;
+	text-align: center;
+	display: block;
+	text-transform: uppercase;
+	padding: 8px;
+	margin-top: 57px;
+	margin-left: 4px;
+	margin-right: 141px;
+	margin-bottom: -40px;
+	font-weight: 200;
+	vertical-align: sub;
+}
 
 
 
@@ -229,8 +254,8 @@ nav a:hover {
     }
 
     nav {
-        float: right;
-        width: 38%;
+	float: right;
+	width: 200%;
     }
 
 /* ============
