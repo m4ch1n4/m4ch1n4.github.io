@@ -85,11 +85,55 @@ body {
 }
 
 .title {
-	max-width: 19%;
+	max-width: 10%;
 	margin-top: 5px;
-	margin-left: -147px;
+	margin-left: -155px;
 	margin-right: 0px;
 	margin-bottom: 5px;
+	min-width: 218px;
+	min-height: 31px;
+	max-height: auto;
+}
+
+/* ==============
+    MOBILE:
+   ============== */
+
+@media (max-width: 375px){
+	.title{
+	width: 104%;
+	margin-left: 68px;
+	}
+	nav ul {
+	width: 134px;
+	text-align: center;
+	margin-left: 74px;
+	margin-right: auto;
+	margin-top: -16px;
+	list-style: none;
+	padding-bottom: 0px;
+	height: 107px;
+	}
+.fdiv
+{
+	width: 114%;
+	text-align: center;
+	padding-left: 0px;
+	font-size: x-small;
+	 }
+	
+	
+	#p{
+	width: 92%;
+	text-align: center;
+	top: 0%;
+	margin-top: -93px;
+	margin-left: 17px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 21px;
+	}
+	
 }
 
 /* ==============
@@ -184,11 +228,6 @@ nav a:hover {
 
 
 
-
-
-
-
-
 /* ==========================================================================
    Media Queries
    ========================================================================== */
@@ -256,13 +295,23 @@ nav a:hover {
    ============ */
 
     .title {
-        float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	padding-left: auto;
+	padding-top: auto;
+	padding-right: auto;
+	padding-bottom: auto;
+	margin-bottom: -137px;
+	width: 1%;
     }
 
     nav {
 	float: right;
-	width: 70%;
+	width: 191%;
 	display: inline;
+	margin-bottom: 39px;
+	margin-top: 161px;
+	margin-right: 71px;
     }
 
 /* ============
@@ -280,7 +329,7 @@ nav a:hover {
     }
 }
 
-@media only screen and (min-width: 1140px) {
+@media screen and  {
 
 /* ===============
     Maximal Width
@@ -289,9 +338,52 @@ nav a:hover {
     .wrapper {
         width: 1026px; /* 1140px - 10% for margins */
         margin: 0 auto;
+		
     }
+	
+	.title{
+	min-width: 12%;
+	margin-left: 42px;
+	margin-top: -171px;
+	margin-right: -85px;
 }
-
+nav{
+	width: 4.8%;
+	height: 0%;
+	margin-bottom: -65px;
+	margin-left: 3px;
+	margin-right: -13px;
+	padding-left: 72px;
+}
+}
+/* ==========================================================================
+   								MAXWIDTH
+   ========================================================================== */
+@media (min-width: 1140px) and (max-width: 1440px){
+	
+	    .wrapper {
+        width: 1026px; /* 1140px - 10% for margins */
+        margin: 0 auto;
+		
+    }
+	
+		.title{
+	min-width: 14%;
+	margin-left: -70px;
+	margin-top: -144px;
+	margin-bottom: -141px;
+	margin-right: -47px;
+	padding-left: 18px;
+}
+nav{
+	width: 66.8%;
+	height: 24%;
+	margin-bottom: -18px;
+	margin-top: -13px;
+	margin-left: 0px;
+}
+	
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
