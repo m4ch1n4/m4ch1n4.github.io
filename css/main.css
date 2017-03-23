@@ -5,6 +5,13 @@ html {
     font-size: 1em;
     line-height: 1.4;
 }
+#bodymovin {
+  background-color: #ccc;
+  width: 910px;
+  height: 138px;
+  transform: translate3d(0, 0, 0);
+}
+
 
 ::-moz-selection {
     background: #b3d4fc;
@@ -136,15 +143,18 @@ body {
 	}
 	
 	.footimg {
-	margin-left: 28px;
-	min-width: 72%;
-	margin-top: 2px;
-	margin-bottom: -1px;
-	margin-right: 6px;
-	padding-top: 1px;
-	padding-right: 1px;
-	padding-bottom: 1px;
-	padding-left: 1px;
+	min-width: auto;
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+	width: auto;
+	display: inline-block;
+	max-height: auto;
+	height: auto;
+	min-height: auto;
+	padding-top: 0px;
+	margin-left: 22px;
+	margin-right: -16px;
 }
 	
 	#SPAN{
@@ -152,6 +162,14 @@ body {
 	padding-top: 0px;
 	width: 16%;
 	}	
+section article #bodymovin {
+	width: 107%;
+	height: auto;
+	background:#000000;
+	
+	
+		
+}
 }
 
 /* ==============
@@ -221,6 +239,7 @@ nav a:hover {
    Author's custom styles
    ========================================================================== */
 
+
 .fdiv{
 	max-height: auto;
 	max-width: auto;
@@ -245,12 +264,16 @@ nav a:hover {
 }
 
 
-
+.f {
+	margin-top: 321px;
+	width: 150px;
+	display: block;
+}
 /* ==========================================================================
    Media Queries
    ========================================================================== */
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 376px) {
 
 /* ====================
     INTERMEDIATE: Menu
@@ -377,8 +400,7 @@ nav{
 /* ==========================================================================
    								MAXWIDTH
    ========================================================================== */
-@media (min-width: 1140px) and (max-width: 1440px)
-{
+@media screen and (max-width: 1000px){
 	
 	    .wrapper {
         width: 1026px; /* 1140px - 10% for margins */
