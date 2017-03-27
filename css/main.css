@@ -105,7 +105,7 @@ body {
 @media (max-width: 375px){
 	.title{
 	width: 104%;
-	margin-left: 74px;
+	margin-left: 82px;
 	}
 	nav ul {
 	width: 134px;
@@ -215,11 +215,13 @@ nav a:hover {
 }
 
 .nav-collapse ul {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  display: block;
-  list-style: none;
+	padding: 0;
+	width: 100%;
+	display: block;
+	list-style: none;
+	margin-top: -6px;
+	margin-bottom: 7px;
+	margin-left: 6px;
 }
 
 .nav-collapse li {
