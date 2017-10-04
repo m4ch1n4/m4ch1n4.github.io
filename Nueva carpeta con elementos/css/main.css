@@ -111,15 +111,15 @@ body {
 	margin-left: 108px;
 	}
 	nav ul {
-	width: 134px;
+	width: 175px;
 	text-align: center;
 	margin-left: 74px;
-	margin-right: auto;
 	margin-top: 17px;
 	list-style: none;
 	padding-bottom: 18px;
 	height: 107px;
 	padding-top: 0px;
+	font-weight: lighter;
 	}
 .fdiv
 {
@@ -190,16 +190,21 @@ body {
 
 nav ul {
 	margin-top: 1px;
-	margin-right: 1px;
+	margin-right: 69px;
 	margin-bottom: 1px;
 	list-style-type: none;
+	margin-left: 108px;
 }
 
 nav a {
 	display: inline;
-	margin: 0;
+	margin-top: 0;
+	margin-right: -84px;
+	margin-left: -83px;
 	margin-bottom: 0px;
-	padding: 0px 0;
+	padding-top: 0px;
+	padding-right: 0;
+	padding-bottom: 0px;
 	text-align: center;
 	text-decoration: none;
 	font-weight: normal;
@@ -214,7 +219,8 @@ nav a:visited {
 }
 
 nav a:hover {
-    text-decoration: underline;
+	text-decoration: underline;
+	margin-left: -118px;
 }
 
 .nav-collapse ul {
@@ -225,6 +231,7 @@ nav a:hover {
 	margin-top: -6px;
 	margin-bottom: 7px;
 	margin-left: -9px;
+	margin-right: -55px;
 }
 
 .nav-collapse li {
@@ -451,7 +458,7 @@ nav a:hover {
 	padding-top: auto;
 	padding-right: auto;
 	padding-bottom: auto;
-	margin-bottom: -137px;
+	margin-bottom: -2px;
 	width: 1%;
     }
 
@@ -531,8 +538,6 @@ nav{
 	margin-bottom: -18px;
 	margin-top: -13px;
 	margin-left: 0px;
-}
-	
 }
 /* ==========================================================================
    Helper classes
@@ -645,3 +650,4 @@ nav{
         page-break-after: avoid;
     }
 }
+
