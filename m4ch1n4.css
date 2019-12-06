@@ -70,6 +70,8 @@ body, html {
     position: absolute;
     bottom: 0;
     right: 16px;
+	color: white;
+	
 }
 
 /* Position text in the middle */
@@ -85,6 +87,7 @@ body, html {
 hr {
 	margin: auto;
     width: 40%;
+	color:white;
 	
 }
 
