@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* CSS Document */
-	
+
 /* Center the loader */
 #loader {
   position: absolute;
@@ -10,9 +10,9 @@
   width: 150px;
   height: 150px;
   margin: -75px 0 0 -75px;
-  border: 16px solid #4DFE01;
+  border: 16px solid rgba(72,252,9,1);
   border-radius: 50%;
-  border-top: 16px solid #0FFEFE;
+  border-top: 16px solid rgba(89,212,110,1) ;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite;
@@ -35,11 +35,11 @@
   animation-duration: 1s
 }
 @-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
+  from { bottom:-100px; opacity:0 }
   to { bottom:0px; opacity:1 }
 }
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
+@keyframes animatebottom {
+  from{ bottom:-100px; opacity:0 }
   to{ bottom:0; opacity:1 }
 }
 #myDiv {
@@ -104,9 +104,9 @@ body, html {
 
 /* Position text in the top-left corner */
 .topleft {
-    position: absolute;
+    position: relative;
     top: 0;
-    left: 16px;
+    right: 40%;
 	color: white;
 }
 
@@ -114,9 +114,9 @@ body, html {
 .bottomright {
     position: absolute;
     bottom: 0;
-    right: 160px;
+    right: -5%;
 	color: white;
-	
+
 }
 
 /* Position text in the middle */
@@ -124,17 +124,18 @@ body, html {
     position: absolute;
     top: 50%;
     left: 50%;
+		margin-top: 300px;
     transform: translate(-50%, -50%);
     text-align: center;
-	color: white;
+	  color: white;
 }
 
 /* Style the <hr> element */
 hr {
 	margin: auto;
-    width: 40%;
+    width: 10%;
 	color:white;
-	
+
 }
 
 /*FONT*/
@@ -143,10 +144,10 @@ hr {
 	text-decoration: none;
 	text-decoration-color: grey;
 	color: #FEFEFE;
-	
+
 }
 .hgh  {
-	
+
 	font-family: "broken15";
 	color: #FEFEFE;
 }
