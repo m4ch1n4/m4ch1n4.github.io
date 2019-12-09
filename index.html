@@ -1,49 +1,95 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<!-- Chrome, Firefox OS y Opera -->
-    <meta name="theme-color" content="#020202" />
-<!-- Windows Phone -->
-	 	<meta name="msapplication-navbutton-color" content="#020202"/>
- <!-- iOS Safari -->
-		<meta name="apple-mobile-web-app-capable" content="yes"/>
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
-<link rel="icon" type="image/x-icon" href="m4ch1n4.github.io/favicon.ico">
-<meta name="theme-color" content="#0a0606">
-<link rel="stylesheet" href="../m4ch1n4.github.io/m4ch1n4.css">
-<script  type="text/javascript" src= "../m4ch1n4.github.io/m4ch1n4.js"></script>
-<title>M4CH1N4</title>
-</head>
+@import "modularscale@3.*";
+@import "neat@2.*";
+@import "bourbon@5.*";
+@import "breakpoint";
+@import "susy";
 
+.sub {
+	color: rgb(100,220,220);
+	letter-spacing: 1em;
+}
+
+// Here's the meat and potatoes.
+
+/* Our mixin positions a copy of our text
+directly on our existing text, while
+also setting content to the appropriate
+text set in the data-text attribute. */
+@mixin glitchCopy { 
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+}
+
+.glitch {
+	position: relative;
+	color: white;
+	font-size: 2em;
+	letter-spacing: .1em;
+	/* Animation provies a slight random skew. Check bottom of doc
+	for more information on how to random skew. */
+	animation: glitch-skew 1s infinite linear alternate-reverse;
 	
-	<body onload="myFunction()" style="margin:0;">
-		
-	              <div class="MACHINA" id="loader">
-					  <h1 class="sap"  data-text="M4CH1N4">M4CH1N4</h1>
-			  		</div>
-		
-		<div style="display:none;" id="myDiv" class="animate-bottom">
-            <div><h1 class="MACHINA topleft">M4CH1N4</h1></div>
-  
-       </div>
-	       	
-		<script>
-var myVar;
-
-function myFunction() {
-  myVar = setTimeout(showPage, 3000);
+	// Creates a copy before our text. 
+	&::before{
+		// Duplicates our text with the mixin.
+		@include glitchCopy;
+		// Scoots text slightly to the left for the color offset.
+		left: 2px;
+		// Creates the color 'shadow' that happens on the glitch.
+		text-shadow: -2px 0 #ff00c1;
+		/* Creates an initial clip for our glitch. This works in
+		a typical top,right,bottom,left fashion and creates a mask
+		to only show a certain part of the glitch at a time. */
+		clip: rect(44px, 450px, 56px, 0);
+		/* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+		with an alternating animation to keep things fresh. */
+		animation: glitch-anim 5s infinite linear alternate-reverse;
+	}
+	
+	// Creates a copy after our text. Note comments from ::before.
+	&::after {
+		@include glitchCopy;
+		left: -2px;
+		text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+		animation: glitch-anim2 1s infinite linear alternate-reverse;
+	}
 }
 
-function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("myDiv").style.display = "block";
+/* Creates an animation with 20 steaps. For each step, it calculates 
+a percentage for the specific step. It then generates a random clip
+box to be used for the random glitch effect. Also adds a very subtle
+skew to change the 'thickness' of the glitch.*/
+@keyframes glitch-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew((random(100) / 100) + deg);
+    }
+  }
 }
-</script>
-	</body>
-</html>
+
+// Same deal, just duplicated for ultra randomness.
+@keyframes glitch-anim2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+			transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+// Does the same deal as before, but now only skews. Used for main text.
+@keyframes glitch-skew {
+  $steps: 10;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      transform: skew((random(10) - 5) + deg);
+    }
+  }
+}
