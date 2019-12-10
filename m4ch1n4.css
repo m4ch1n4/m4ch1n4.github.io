@@ -20,11 +20,11 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #000;
+  background: white;
 }
 html{
-	background: hsla(0,0%,0%,1.00); 
-  color: black;
+	background: hsla(0,0%,0%,0.00); 
+  color: white;
   font-size: 1em;
   line-height: 1.4;
 }
@@ -147,6 +147,12 @@ textarea {
 }
 
 /*LOADERANIM*/
+#containerr {
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
 
 .sap{
   position: relative;
@@ -231,7 +237,7 @@ textarea {
 	font-family: 'Old Times American Titling W00' ;
 	text-decoration: none;
 	text-decoration-color: grey;
-	color: #FEFEFE;
+	color: black;
 
 }
 .hgh  {
