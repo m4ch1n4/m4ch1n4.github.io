@@ -215,7 +215,7 @@ textarea {
 	position: fixed;
 	top: 0;
 	color: white;
-	left: 1%;
+	left: -1%;
 	width: 100%;
     height: auto;
 }
@@ -251,10 +251,10 @@ textarea {
   height: auto;	
   text-transform:uppercase;
   color:#fdf6f0;
-  font-size:19.50vw;
+  font-size:16.50vw;
   font-weight:bold;
-  text-align:left;
- font-family:'Old Times American Titling W00';
+  text-align:center;
+  font-family:'Old Times American Titling W00';
 	 
 }
 .MACHINA {
@@ -398,6 +398,10 @@ textarea {
   text-align:left;
   font-family:'Old Times American Titling W00'
 }
+	.topleft {
+		left: 1%;
+		
+	}
 .MACHINA {
 	font-family: 'Old Times American Titling W00' ;
 	text-decoration: none;
