@@ -1,4 +1,4 @@
-// JavaScript Document
+JavaScript Document
 //  the date we're counting down to
 //var countDownDate = new Date(" Oct 15, 2017 15:37:25").getTime();
 //
@@ -25,131 +25,52 @@
 //    document.getElementById("day1s").innerHTML = "FUCK UP TIME";
 //  }
 //}, 1000);
+    	$(document).ready(function(){
+var theLetters = "abcdefghijklmnopqrstuvwxyz#%&^+=-"; //You can customize what letters it will cycle through
+var ctnt = "M4CH1N4"; // Your text goes here
+var speed = 5; // ms per frame
+var increment = 1; // frames per step. Must be >2
 
+    
+var clen = ctnt.length;       
+var si = 0;
+var stri = 0;
+var block = "";
+var fixed = "";
+//Call self x times, whole function wrapped in setTimeout
+(function rustle (i) {          
+setTimeout(function () {
+  if (--i){rustle(i);}
+  nextFrame(i);
+  si = si + 1;        
+}, speed);
+})(clen*increment+1); 
+function nextFrame(pos){
+  for (var i=0; i<clen-stri; i++) {
+    //Random number
+    var num = Math.floor(theLetters.length * Math.random());
+    //Get random letter
+    var letter = theLetters.charAt(num);
+    block = block + letter;
+  }
+  if (si == (increment-1)){
+    stri++;
+  }
+  if (si == increment){
+  // Add a letter; 
+  // every speed*10 ms
+  fixed = fixed +  ctnt.charAt(stri - 1);
+  si = 0;
+  }
+  $("#output").html(fixed + block);
+  block = "";
+}
+});
+	
 // text 1 m4ch1n4
 
 // Wrap every letter in a span
-var textWrapper = document.querySelector('.ml11 .letters');
-textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
 
-anime.timeline({loop: true})
-  .add({
-    targets: '.ml11 .line',
-    scaleY: [0,1],
-    opacity: [0.5,1],
-    easing: "easeOutExpo",
-    duration: 700
-  })
-  .add({
-    targets: '.ml11 .line',
-    translateX: [0, document.querySelector('.ml11 .letters').getBoundingClientRect().width + 10],
-    easing: "easeOutExpo",
-    duration: 700,
-    delay: 100
-  }).add({
-    targets: '.ml11 .letter',
-    opacity: [0,1],
-    easing: "easeOutExpo",
-    duration: 600,
-    offset: '-=775',
-    delay: (el, i) => 34 * (i+1)
-  }).add({
-    targets: '.ml11',
-    opacity: 0,
-    duration: 1000,
-    easing: "easeOutExpo",
-    delay: 1000
-  });
 
-window.onload = play();
-document.getElementById('#logo').style.color = '#00FF00';
-function play() {
-	var l = Snap('#logo');
-	var p = l.select('path');
-    l.clear();
-	l.append(p);
-	p.attr();
-
-	setTimeout( function() {
-		// modify this one line below, and see the result !
-		var logoTitle = 'M4CH1N4';
-		var logoRandom = '';
-		var logoTitleContainer = l.text(0, '98%', '');
-		
-		var possible = "-+*/|}{[]~\\\":;?/.><=+-_)(*&^%$#@!)}";
-		
-		
-		logoTitleContainer.attr({
-			fontSize: 180,
-			fontFamily: 'arial',
-			fontWeight: '500',
-			fill:"white",
-            
-			
-		});
-
-		function generateRandomTitle(i, logoRandom) {
-			setTimeout( function() {
-				logoTitleContainer.attr({ text: logoRandom });
-			}, i*70 );
-		}
-
-		for( var i=0; i < logoTitle.length+1; i++ ) {
-			logoRandom = logoTitle.substr(0, i);
-			for( var j=i; j < logoTitle.length; j++ ) { 
-				logoRandom += possible.charAt(Math.floor(Math.random() * possible.length)); 
-			}
-			generateRandomTitle(i, logoRandom);
-			logoRandom = '';
-		}
-
-	}, 450 );
-
-}
-
-window.onload = play();
-document.getElementById('#logo').style.color = '#00FF00';
-
-function play() {
-	var l = Snap('#logo');
-	var p = l.select('path');
-    l.clear();
-	l.append(p);
-	p.attr();
-
-	setTimeout( function() {
-		// modify this one line below, and see the result !
-		var logoTitle = 'M4CH1N4';
-		var logoRandom = '';
-		var logoTitleContainer = l.text(0, '98%', '');
-		
-		var possible = "-+*/|}{[]~\\\":;?/.><=+-_)(*&^%$#@!)}";
-		
-		
-		logoTitleContainer.attr({
-			fontSize: 180,
-			fontFamily: 'arial',
-			fontWeight: '500',
-			fill:"white",
-            
-			
-		});
-
-		function generateRandomTitle(i, logoRandom) {
-			setTimeout( function() {
-				logoTitleContainer.attr({ text: logoRandom });
-			}, i*70 );
-		}
-
-		for( var i=0; i < logoTitle.length+1; i++ ) {
-			logoRandom = logoTitle.substr(0, i);
-			for( var j=i; j < logoTitle.length; j++ ) { 
-				logoRandom += possible.charAt(Math.floor(Math.random() * possible.length)); 
-			}
-			generateRandomTitle(i, logoRandom);
-			logoRandom = '';
-		}
-
-	}, 450 );
-
-}
+// bm js
+   

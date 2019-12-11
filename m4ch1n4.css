@@ -148,6 +148,7 @@ textarea {
 
 /*LOADERANIM*/
 
+
 .sap{
   position: relative;
   font-size: 8em;
@@ -174,6 +175,18 @@ textarea {
     width: 100%;
   }
 }
+
+/*bm animation*/
+ #lottie{
+            background-color:#fff;
+            width:100%;
+            height:100%;
+            display:block;
+            overflow: hidden;
+            transform: translate3d(0,0,0);
+            text-align: center;
+            opacity: 1;
+        }
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
 
 .bgimg {
@@ -227,6 +240,16 @@ textarea {
 
 
 /*FONT*/
+
+#output{
+  /* The command I know best. */
+  text-transform:uppercase;
+  color:#fdf6f0;
+  font-size:2em;
+  font-weight:bold;
+  text-align:left;
+ font-family:'Old Times American Titling W00'
+}
 .MACHINA {
 	font-family: 'Old Times American Titling W00' ;
 	text-decoration: none;
