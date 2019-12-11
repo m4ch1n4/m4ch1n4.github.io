@@ -122,7 +122,8 @@ textarea {
 
 *#loader {
 
- 
+ align-self: center;
+	font-family:'Old Times American Titling W00';
  
 }
 /* Add animation to "page content" */
@@ -151,11 +152,12 @@ textarea {
 
 .sap{
   position: relative;
-  font-size: 8em;
+  font-size: 15vh;
   color: #222;
   text-transform:uppercase ;
   letter-spacing: 0.05em;
   line-height: 1.2em;
+
 }
 .sap:before{
   content: attr(data-text);
@@ -214,6 +216,8 @@ textarea {
 	top: 0;
 	color: white;
 	left: 1%;
+	width: 100%;
+    height: auto;
 }
 
 /* Position text in the bottom-left corner */
@@ -243,18 +247,24 @@ textarea {
 
 #output{
   /* The command I know best. */
+  width: 100%;
+  height: auto;	
   text-transform:uppercase;
   color:#fdf6f0;
-  font-size:2em;
+  font-size:19.50vw;
   font-weight:bold;
   text-align:left;
- font-family:'Old Times American Titling W00'
+ font-family:'Old Times American Titling W00';
+	 
 }
 .MACHINA {
+    width: 100%;
+    height: auto;
 	font-family: 'Old Times American Titling W00' ;
 	text-decoration: none;
 	text-decoration-color: grey;
 	color: #FEFEFE;
+	padding: 1px;
 
 }
 .hgh  {
@@ -377,8 +387,35 @@ textarea {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+@media only screen and ( min-width : 35em ){
   /* Style adjustments for viewports that meet the condition */
+	#output{
+  /* The command I know best. */
+  text-transform:uppercase;
+  color:#fdf6f0;
+  font-size:13vh;
+  font-weight:bold;
+  text-align:left;
+  font-family:'Old Times American Titling W00'
+}
+.MACHINA {
+	font-family: 'Old Times American Titling W00' ;
+	text-decoration: none;
+	text-decoration-color: grey;
+	color: #FEFEFE;
+
+}
+
+  .sap{
+  position: relative;
+  font-size: 30vh;
+  color: #222;
+  text-transform:uppercase ;
+  letter-spacing: 0.05em;
+  line-height: 1.2em;
+ 
+}
+	
 }
 
 @media print,
@@ -452,6 +489,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
-
-
