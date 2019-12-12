@@ -1,4 +1,10 @@
-
+var animation = bodymovin.loadAnimation({
+  container: document.getElementById('lottie'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'data.json'
+})
 // JavaScript Document
 
 var animation = bodymovin.loadAnimation({
