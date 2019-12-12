@@ -1,12 +1,11 @@
 
 // JavaScript Document
 
-var animData = {
-        container: document.getElementById('tainer'),
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: animationData,
-	    path:'data.js'
-    };
+var animation = bodymovin.loadAnimation({
+  container: document.getElementById('lottie'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'data.js' 
+})
   

@@ -189,14 +189,13 @@ textarea {
 
 /*bm animation*/
  #lottie{
-            background-color:#fff;
             width:100%;
             height:100%;
             display:block;
             overflow: hidden;
             transform: translate3d(0,0,0);
             text-align: center;
-            opacity: 1;
+            opacity: .01;
         }
 /* Set height to 100% for body and html to enable the background image to cover the whole page: */
 
@@ -402,7 +401,7 @@ textarea {
   /* The command I know best. */
   text-transform:uppercase;
   color:#fdf6f0;
-  font-size:9.5vh;
+  font-size:5.5vh;
   font-weight:bold;
   text-align:left;
   font-family:'Old Times American Titling W00'
