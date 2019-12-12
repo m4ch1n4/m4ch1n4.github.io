@@ -120,6 +120,11 @@ textarea {
 
 }
 
+#tainer {
+	align-self: baseline;
+	width: 100%;
+}
+
 *#loader {
 
     align-self: center;
@@ -159,8 +164,8 @@ textarea {
   line-height: 1.2em;
   width: 100%;
   height: auto;
-
 }
+
 .sap:before{
   content: attr(data-text);
   position: absolute;
@@ -172,6 +177,7 @@ textarea {
   animation: animate 10s linear infinite;
   height: auto;
 }
+
 @keyframes animate {
   0%{
     width: 0%;
