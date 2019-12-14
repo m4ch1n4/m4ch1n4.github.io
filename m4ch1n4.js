@@ -30,7 +30,7 @@
 
   var myEar;
   function mrRop () {
-  myEar = setTimeout( showPage, 2000);
+  myEar = setTimeout( showPage, 8000);
   }
 	
   function showPage() {
