@@ -22,17 +22,27 @@
 </head>
 
 	
-	<body style="margin:0;">
+	<body onLoad="mrRop()" style="margin:0;">
+		<div id="loader">
+				    <h1 class="sap" data-text="M4CH1N4">M4CH1N4</h1> 
+	</div>  <!-- loading -->
 		
- <!-- loading -->
-		
-	<div> <!-- intro animation-->
+	<div style="display:none;" id="mySiv" class="animate-bottom"> <!-- intro animation-->
        <div>
 	     <div>
                <div class="MACHINA topleft"  id="output"></div> <!-- logo -->
 			    <div id="lottie"> </div>
 	     </div>	
 	    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $.getScript("m4ch1n4.js")
+});
+</script>
+
+	   
 	<!--	-->
      </div>
 
