@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -21,12 +22,15 @@ body{
   align-items: center;
   min-height: 100vh;
   background: #000;
+  font-display: auto;
+  font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 }
 html{
-	background: hsla(0,0%,0%,1.00); 
+  background: hsla(0,0%,0%,1.00); 
   color: black;
   font-size: 1em;
   line-height: 1.4;
+  font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 }
 
 /*
