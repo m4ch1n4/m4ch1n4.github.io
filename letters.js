@@ -1,7 +1,7 @@
 $(document).ready(function(){
 var theLetters = "1234567890#%&^+=-"; //You can customize what letters it will cycle through
 var ctnt = "M4CH1N4"; // Your text goes here
-var speed = 150; // ms per frame
+var speed = 250; // ms per frame
 var increment = 8; // frames per step. Must be >2
 
     
