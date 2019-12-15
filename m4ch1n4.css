@@ -290,24 +290,28 @@ textarea {
 {
  font-family: 'Old Times American Titling W00' ;
  src: url(' Old Times American Titling W00.eot');
+ font-display: swap;
 }
 
 @font-face
 {
  font-family: 'Old Times American Titling W00';
  src: url(' Old Times American Titling W00.ttf');
+ font-display: swap;	
 }
 
 @font-face
 {
  font-family: 'broken15';
  src: url('  broken15-webfont.eot');
+	font-display: swap;
 }
 
 @font-face
 {
  font-family: 'broken15';
  src: url(' BROKEN15.TTF');
+ font-display: swap;
 }
 
 
