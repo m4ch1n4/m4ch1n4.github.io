@@ -131,7 +131,7 @@
   box-sizing: border-box;
 }
 body{
-  cursor: url( favicon-32x32.png), cell;	
+  cursor: cell;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -236,6 +236,7 @@ textarea {
 }
 
 *#loader {
+	position: fixed;
     align-self: center;
 	font-family:'Old Times American Titling W00';
 }
@@ -257,7 +258,7 @@ textarea {
 }
 #myDiv {
   display: none;
-  text-align: center;
+ 
 }
 
 /*LOADERANIM*/
@@ -296,6 +297,7 @@ textarea {
 
 /*bm animation*/
  #lottie{
+	cursor: url( cursor_33.png), cell;
 	width: 90%;
 	height: 50%;
 	align-content: center;

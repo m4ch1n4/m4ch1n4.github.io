@@ -1,15 +1,7 @@
-// JavaScript Document
-  var myEar;
-  function mrRop () {
-  myEar = setTimeout( showPage, 1500);
-  }	
-  function showPage() {
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("mySiv").style.display = "block";
-}
+// JavaScript Document	
+$(window).load(function() {
+	 $('#loader').fadeOut('fast');
+	 $('#mySiv').fadeIn('slow');		
+});
+	
 
-
-
-
-
-// bodymoving
