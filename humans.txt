@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    <M4ch1n4> -- <FrontStack_pirate> -- <@rj_m_m>
+
+# THANKS
+
+    <Andie>
+
+# TECHNOLOGY COLOPHON
+
+    CSS3, HTML5
+    Apache Server Configs, jQuery, Modernizr, Normalize.css, Bodimovin,

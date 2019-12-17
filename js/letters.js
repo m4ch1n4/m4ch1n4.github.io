@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	"use strict";
 var theLetters = "123567890#%&^+=-"; //You can customize what letters it will cycle through
 var ctnt = "M4CH1N4"; // Your text goes here
 var speed = 150; // ms per frame
