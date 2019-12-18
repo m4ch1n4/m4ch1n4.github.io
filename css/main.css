@@ -141,14 +141,7 @@ textarea {
   display: none;
  
 }
-#Limbomask{
-	align-self: center;
-	width: 70vh;
-	height: 96vh;
-	position: relative;
-	z-index: -0;
-	
-}
+
 /*LOADERANIM*/
 
 .sap{
@@ -158,7 +151,7 @@ textarea {
   text-transform:uppercase ;
   letter-spacing: 0.05em;
   line-height: 1.2em;
-  width: 100%;
+  width: 90%;
   height: auto;
 }
 
@@ -184,6 +177,15 @@ textarea {
 }
 
 /*bm animation*/
+#Limbomask{
+	align-self: center;
+	width: 100vw ;
+	height: auto;
+	position: relative;
+	z-index: -0;
+	margin-left: -3vw;
+	
+}
  #lottie{
 	cursor: url( ../cursor_33.png), cell;
 	width: auto;
@@ -195,8 +197,8 @@ textarea {
 	text-align: center;
 	opacity: 1;
 	position: relative;
+	margin-top:5vh; 
 	z-index: 0;
-	margin-top: 9vh;
         }
 /* Position text in the top-left corner */
 .topleft {
@@ -390,6 +392,15 @@ textarea {
 	position: inherit;
         }
 	
+	
+	#Limbomask{
+	align-self: center;
+	width: 70vh;
+	height: 96vh;
+	position: relative;
+	z-index: -0;
+	
+}
 .MACHINA {
 
 	width: 100%;
@@ -419,6 +430,21 @@ textarea {
   (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
+
+@media (min-aspect-ratio 9/16){
+	#Limbomask{
+		width: auto;
+		height: 100%;
+	}
+}
+
+@media (max-aspect-ratio 9/16){
+	#Limbomask{
+		width:100%;
+		height: auto;
+	}
+}
+
 
 /* ==========================================================================
    Print styles.

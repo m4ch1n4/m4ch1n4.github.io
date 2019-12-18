@@ -545,6 +545,13 @@ textarea {
 	
 }
 
+@media (max-aspect-ratio 9/16){ 
+		#Limbomask{
+			width: 100%;
+			height: auto;
+		  }
+		}
+
 @media print,
   (-webkit-min-device-pixel-ratio: 1.25),
   (min-resolution: 1.25dppx),
