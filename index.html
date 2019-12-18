@@ -23,10 +23,11 @@
 <link rel="apple-touch-icon" href="icon.png">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/video.sass">
   <meta name="theme-color" content="#fafafa">
 </head>
 
-<body>
+<body style="background: #000000">
   <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
@@ -35,14 +36,17 @@
 		<h1 class="sap" data-text="M4CH1N4">M4CH1N4</h1>
 	    </div>  <!-- loading -->
 
-	    <div style="display:none;" id="mySiv" > <!-- loading full animation -->
+	    <div style="display:none;" id="mySiv" >
+	      <div id="lottie" onclick="location.href='/Main/index.html'">
+	        <video id="Limbomask" poster="" autoplay muted loop >
+	          <source src="Machin4 3_00150_2.mp4" type="video/mp4">
+            </video>
+          </div>
+	      <div class="MACHINA topleft"  id="output"> </div>
+<!-- loading full animation -->
 
 	             <!--Full content-->
-
-                <div class="MACHINA topleft"  id="output"> </div>
-			  <!-- logo glitch animation -->
-
-			    <div  id="lottie" onclick="location.href='/Main/index.html'"> </div> <!-- PNG DIVAnimation-->
+			  <!-- logo glitch animation -->		        <!-- PNG DIVAnimation-->
 
 
 	    </div>
@@ -54,7 +58,7 @@
   
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script> <script  src="js/letters.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.8/lottie.min.js"></script><script src="js/animation_ms1.js"></script>  
+<!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.8/lottie.min.js"></script><script src="js/animation_ms1.js"></script>-->  
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 

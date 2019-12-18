@@ -18,7 +18,7 @@ body{
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #000;
+  background:  hsla(0,0%,6%,1.00);
   font-display: auto;
   font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace";
 }
@@ -141,7 +141,15 @@ textarea {
   display: none;
  
 }
-
+#Limbomask{
+	width: 65vh;
+	height: auto;
+	position: relative;
+	z-index: -0;
+	margin-top: -5vh;
+	margin-left: -5.2vh;
+	padding-left: 0px;
+}
 /*LOADERANIM*/
 
 .sap{
@@ -179,18 +187,17 @@ textarea {
 /*bm animation*/
  #lottie{
 	cursor: url( ../cursor_33.png), cell;
-	width: 90%;
-	height: 50%;
+	width: 115%;
 	align-content: center;
 	display: block;
 	overflow: hidden;
 	transform: translate3d(0,0,0);
 	text-align: center;
 	opacity: 1;
-	margin: 3.5%;
-	padding-top: 10%;
 	position: relative;
 	z-index: 0;
+	margin-top: 0px;
+	margin-left: -18px;
         }
 /* Position text in the top-left corner */
 .topleft {
@@ -372,18 +379,16 @@ textarea {
 	}
 	
 	#lottie{
-            width:100vh;
-            height:100vh;
-	        align-content: center;
-            display:block;
-            overflow: hidden;
-            transform: translate3d(0,0,0);
-            text-align: center;
-	        opacity: 1;
-	        margin: 0;
-	   		padding-top:5%;
-		    position: inherit;
-		    
+	width: 108%;
+	align-content: center;
+	display: block;
+	overflow: hidden;
+	transform: translate3d(0,0,0);
+	text-align: center;
+	opacity: 1;
+	margin: 0;
+	padding-top: 5%;
+	position: inherit;
         }
 	
 .MACHINA {
@@ -480,4 +485,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
