@@ -6,7 +6,7 @@
   font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace"!important;
   font-weight: 70vw !important;
 }
-
+.img-svg:hover{filter: blur(20px)}
 .img-svg {
   animation: infinite;
   animation-timing-function:ease-in-out;
@@ -23,5 +23,7 @@
   from {filter: hue-rotate(0deg);}
   to {filter: hue-rotate(360deg);}
 }
-/*//   -webkit-filter: hue-rotate(90deg); /* Safari 6.0 - 9.0 */
-/*filter: hue-rotate(90deg);*/
+
+@media(hover: hover) and (pointer: fine) {
+	img .img-svg:hover{filter: blur(20px)}
+}
