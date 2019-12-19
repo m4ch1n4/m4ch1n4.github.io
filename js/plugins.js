@@ -25,7 +25,7 @@
 // Place any jQuery/helper plugins in here.
 $(window).load(function() {
 	 "use strict";
-	 $('#loader').fadeOut('fast');
+	 $('#loader').fadeOut('slow');
 	 $('#mySiv').fadeIn('slow');		
 });
 	
