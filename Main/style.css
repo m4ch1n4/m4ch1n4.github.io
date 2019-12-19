@@ -6,6 +6,47 @@
   font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace"!important;
   font-weight: 70vw !important;
 }
+  .floating-menu {
+	font-family: Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+	background-color: hsla(0,0%,100%,0.00);
+	padding-top: 100px;
+	padding-right: 100px;
+	padding-left: 100px;
+	padding-bottom: 100px;
+	;
+	width: 177px;
+	z-index: 100;
+	position: relative;
+	bottom: 57vh;
+	right: 65px;
+	margin-left: 29px;
+  .icon{ 
+	 font-size: 2.3vh; color:white;padding: .4vw;
+	left: 0vh;	
+}
+.icon:hover {
+	filter: blur(1px);
+	color: lime;
+	transition: .2;
+}
+.redg {
+	display: inline-block;
+	background-color: hsla(0,0%,0%,0.00);
+	overflow-y: scroll;
+	position: relative;
+	padding-top: 114px;
+	margin-top: -690px;
+	width: 49vw;
+	right: -7%;
+}}
+
+  .floating-menu a, 
+  .floating-menu h3 {
+	font-size: 0.9em;
+	display: block;
+	margin: 0 0.5em;
+	color: hsla(116,89%,72%,1.00);
+  }
 
 .img-svgh:hover {
 	filter: blur(1px);
@@ -27,5 +68,3 @@
   from {filter: hue-rotate(0deg);}
   to {filter: hue-rotate(360deg);}
 }
-
-
