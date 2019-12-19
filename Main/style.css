@@ -6,14 +6,20 @@
   font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", "monospace"!important;
   font-weight: 70vw !important;
 }
-.img-svg:hover{filter: blur(20px)}
+
+.img-svgh:hover {
+	filter: blur(6px);
+}
+.img-svgh{
+
+}
 .img-svg {
   animation: infinite;
   animation-timing-function:ease-in-out;
   animation-name: changehue;
   animation-duration: 4.6s;
 -webkit-filter: hue-rotate(0deg); /* Safari 6.0 - 9.0 */
-  filter: hue-rotate(0deg);
+ filter: hue-rotate(0deg) ;
 }
 @-webkit-keyframes  changehue {
   from {filter: hue-rotate(0deg);}
@@ -24,6 +30,4 @@
   to {filter: hue-rotate(360deg);}
 }
 
-@media(hover: hover) and (pointer: fine) {
-	img .img-svg:hover{filter: blur(20px)}
-}
+
