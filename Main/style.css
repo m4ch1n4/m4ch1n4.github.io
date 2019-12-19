@@ -10,9 +10,7 @@
 .img-svgh:hover {
 	filter: blur(1px);
 }
-.img-svgh{
 
-}
 .img-svg {
   animation: infinite;
   animation-timing-function:ease-in-out;
