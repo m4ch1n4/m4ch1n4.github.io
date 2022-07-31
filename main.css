@@ -1275,12 +1275,13 @@ svg {
 
 /* NAV BAR */
 nav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none; }
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	width: 40%;
+	pointer-events: none;
+}
   nav a {
     pointer-events: auto; }
   nav.sticky {
@@ -1877,7 +1878,7 @@ height: 80vh}
   height: 3em;
   border: 2px solid #ac2eff;
   z-index: 20;
-  content:  }
+  content: }
   @media only screen and (max-width: 641px) {
     .back-block-green-bottom-right:before {
       display: none; } }
@@ -3053,21 +3054,23 @@ input, textarea, button, select {
 .move5 {
 	position: absolute;
 	display: block;
-	width: 30%;
-	height: 3em;
-	z-index: 20;
-	color: hsla(359,87%,52%,1.00);
+	width: 20%;
+	height: 7vh;
+	z-index: 111;
+	color: hsla(126,87%,52%,1.00);
 	padding-right: 0px;
 	padding-top: 0px;
 	padding-bottom: 0px;
 	padding-left: 0px;
-	left: 75%;
-	top: 5%;
+	left: 17%;
+	top: 18%;
 }
 
 @media (max-width: 638px){
 }
-.icon{ 
+.icon{ font-size: 2.3vh; color:white;padding: .4vw;
+	
+}
 .icon{ 
 	 font-size: 2.3vh; color:white;padding: .4vw;
 	
@@ -3086,9 +3089,7 @@ input, textarea, button, select {
 	margin-top: -690px;
 	width: 49vw;
 	right: -7%;
-}	 font-size: 2.3vh; color:white;padding: .4vw;
-	
-}
+}	 
 .icon:hover {
 	filter: blur(1px);
 	color: lime;
