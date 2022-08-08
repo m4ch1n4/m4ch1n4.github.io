@@ -1,73 +1,232 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <title>Book</title>
+	<style> 
+ @font-face {
+  font-family:;
+  src: url('fonts/OpenSans-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+		nav{
+			font-family: "HK Grotesk Medium";
+			align-items: flex-start;
+			width: 100%;
+			height: 25%;
+		
+				
+			
+		}
+ul {
+font-size: .5em;
+list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+	
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+		
+		
+	/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	
+}
+
+/* iPad 3 (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (-webkit-min-device-pixel-ratio : 2),
+only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (min-resolution: 192dpi) { 
+
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+	
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+	
+}
+
+/* Retina displays ----------- */
+@media  only screen 
+and (-webkit-min-device-pixel-ratio : 2), 
+only screen 
+and (min-resolution: 192dpi) {
+
+}	
+		.dropbtn {
+  background-color: lime;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+	</style>
 </head>
 
-<body>
-<h1> Hello human!!<h1>
-</body>
+<body style="position: fixed; background-color: black; width:100%; height: 800%">
+   <h1 style="align-content: center; color: lawngreen; font-family: 'Archivo Narrow Medium' "> Hello human!!<h1>
+<nav> 
+<div class="dropdown">
+<button class="dropbtn"> Content</button>
+	<div class="dropdown-content">
 <ul class="list-inline">
-  <li class="list-inline-item"><a href="">Audio Visual</a>
+<div class="dropdown"> 
+	<button class="dropbtn">
+	
+	
+	<div class="dropdown-content"><li class="list-inline-item"><a href="Audio visual/index.html">Audio Visual</a></button> 
     <ul>
-      <li class="list-inline-item"> <a href="#">Animation</a></li>
+      <li class="list-inline-item"> <a href= "Audio visual/index.html">Animation</a></li>
       <ul>
-        <li class="list-inline-item"><a href="#">2d</a></li>
-        <li class="list-inline-item"><a href="#">3d</a></li>
-        <li class="list-inline-item"><a href="#">Motion grafics</a></li>
+        <li class="list-inline-item"><a href="Audio visual/Animacion/3d/index.html">3d</a></li>
+        <li class="list-inline-item"><a href="Audio visual/Animacion/2d/index.html">2d</a></li>
+        <li class="list-inline-item"><a href="Audio visual/Animacion/Motion_graphics/index.html">Motion grafics</a></li>
       </ul>
-      <li class="list-inline-item"><a href="#">Photograph</a></li>
+      <li class="list-inline-item"><a href="Audio visual/Photografia/index.html">Photograph</a></li>
       <ul>
-        <li class="list-inline-item"><a href="#">Concert</a></li>
-        <li class="list-inline-item"><a href="#">Editorial</a></li>
-        <li class="list-inline-item"><a href="#">Product</a></li>
-        <li class="list-inline-item"><a href="#">Vernacular</a></li>
+        <li class="list-inline-item"><a href="Audio visual/Photografia/Concierto/index.html">Concert</a></li>
+        <li class="list-inline-item"><a href="Audio visual/Photografia/Moda/index.html">Editorial</a></li>
+        <li class="list-inline-item"><a href="Audio visual/Photografia/Producto/index.html">Product</a></li>
+        <li class="list-inline-item"><a href="Audio visual/Photografia/Vernacular/index.html">Vernacular</a></li>
 
       </ul>
-      <li class="list-inline-item"><a href="#">Video</a></li>
+      <li class="list-inline-item"><a href="Audio visual/video/index.html">Video</a></li>
       <ul>
-        <li class="list-inline-item"><a href="#">Editorial</a></li>
-        <li class="list-inline-item"><a href="#">Bts</a></li>
-        <li class="list-inline-item"><a href="#">Info</a></li>
-        <li class="list-inline-item"><a href="#">Music</a></li>
+        <li class="list-inline-item"><a href="Audio visual/video/Editorial/index.html">Editorial</a></li>
+        <li class="list-inline-item"><a href="Audio visual/video/Interno/index.html">Bts Interno</a></li>
+        <li class="list-inline-item"><a href="Audio visual/video/Musical/index.html">Music</a></li>
       </ul>
     </ul>
-
-  </li>
-  <li class="list-inline-item">Experimental ilustration</li>
+  </li></div>
+</div>	
+  <li class="list-inline-item"><a href="Ilutracion_experimental/index.html">Experimental ilustration</a></li>
   <ul>
-    <li class="list-inline-item"><a href="#"> Ar filters</a></li>
-    <li class="list-inline-item"><a href="#">Gif</a></li>
+    <li class="list-inline-item"><a href= "Ilutracion_experimental/index.html"> Ar filters</a></li>
+    <li class="list-inline-item"><a href="Ilutracion_experimental/Gif/index.html">Gif</a></li>
     <ul>
-      <li class="list-inline-item"><a href="#">2d</a></li>
-      <li class="list-inline-item"><a href="#">3d</a></li>
-      <li class="list-inline-item"><a href="#">hybrids</a></li>
+      <li class="list-inline-item"><a href="Ilutracion_experimental/Gif/2d/index.html">2d</a></li>
+      <li class="list-inline-item"><a href="Ilutracion_experimental/Gif/3d/index.html">3d</a></li>
+      <li class="list-inline-item"><a href="Ilutracion_experimental/Gif/Hybridos/index.html">hybrids</a></li>
     </ul>
-    <li class="list-inline-item"><a href="#">Letering</a></li>
-    <li class="list-inline-item"><a href="#">Posters</a></li>
+    <li class="list-inline-item"><a href="Ilutracion_experimental/Letering/index.html">Letering</a></li>
+    <li class="list-inline-item"><a href="Ilutracion_experimental/Posters/Colage/index.html">Posters</a></li>
     <ul>
-      <li class="list-inline-item"><a href="#">2d</a></li>
-      <li class="list-inline-item"><a href="#">Personal</a></li>
+      <li class="list-inline-item"><a href="Ilutracion_experimental/Posters/Colage/index.html">Collage</a></li>
+      <li class="list-inline-item"><a href="Ilutracion_experimental/Posters/Prsonal/index.htlm">Personal</a></li>
     </ul>
-    <li class="list-inline-item"><a href="#">Stikers</a></li>
+    <li class="list-inline-item"><a href="Ilutracion_experimental/stikers/index.html">Stikers</a></li>
   </ul>
-  <li class="list-inline-item">NFT</li>
-  <li class="list-inline-item">Renders</li>
+  <li class="list-inline-item"><a href="NFT/index.html">NFT</a></li>
+  <li class="list-inline-item"><a href="Renders/index.html">Renders</a></li>
   <ul>
-    <li class="list-inline-item"><a href="#">Dynamics</a></li>
-    <li class="list-inline-item"><a href="#">Structure</a></li>
+    <li class="list-inline-item"><a href="Renders/Dinamicas/index.html">Dynamics</a></li>
+    <li class="list-inline-item"><a href="Renders/Estructura/index.html">Structure</a></li>
     <ul>
-      <li class="list-inline-item"><a href="#">Modeling industrial desing</a></li>
-      <li class="list-inline-item"><a href="#"> Brand Stands</a></li>
+      <li class="list-inline-item"><a href="Renders/Estructura/Diseño_modelado_Industrial/index.html">Modeling industrial desing</a></li>
+      <li class="list-inline-item"><a href="Renders/Estructura/Estands/index.html"> Brand Stands</a></li>
 
     </ul>
-    <li class="list-inline-item"><a href="#">Character</a></li>
+    <li class="list-inline-item"><a href="Renders/Personaje/index.html">Character</a></li>
   </ul>
-  <li class="list-inline-item">Web  Ux/ui</li>
+  <li class="list-inline-item"><a href="Webdesing_ui_ux_game/index.html">Web Ux/ui</a></li>
   <ul>
-    <li class="list-inline-item"><a href="#">Figma mock ups</a></li>
-    <li class="list-inline-item"><a href="#">Web</a></li>
+    <li class="list-inline-item"><a href="Webdesing_ui_ux_game/Web/index.html">Figma mock ups</a></li>
+    <li class="list-inline-item"><a href="Webdesing_ui_ux_game/index.html">Web</a></li>
   </ul>
-
-</ul>
+ </ul>
+		</div>
+</div>
+</nav>	
+</body>
+	   
 </html>
