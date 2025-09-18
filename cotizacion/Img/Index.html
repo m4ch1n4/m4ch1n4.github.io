@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M4CH1N4 — Cotización</title>
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --fg: #f2f2f2;
+      --muted: #bdbdbd;
+      --accent: #e6e1d3;
+      --card: #121212;
+      --pill: #1f1f1f;
+      --ok: #17c964;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background: var(--bg); color: var(--fg); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 28px 20px 64px; }
+    header { display:flex; align-items:center; justify-content:space-between; gap: 16px; margin-bottom: 28px; }
+    .brand { display:flex; align-items:center; gap:16px; }
+    .brand img { height:44px; width:auto; filter: drop-shadow(0 3px 12px rgba(0,0,0,.6)); }
+    .brand .title { font-weight: 700; letter-spacing: 1px; color: var(--accent); opacity:.9; }
+    .badge { background: var(--pill); color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size:12px; }
+    h1 { margin: 8px 0 0; font-size: clamp(22px, 3vw, 28px); letter-spacing:.5px; }
+    .card { background: linear-gradient( to bottom right, rgba(255,255,255,.04), rgba(255,255,255,.02) ); border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 16px; }
+    .grid { display:grid; grid-template-columns: 1fr; gap: 14px; }
+    @media (min-width: 720px) { .grid { grid-template-columns: 1.1fr .9fr; } }
+    table { width:100%; border-collapse: collapse; }
+    th, td { padding: 12px 10px; border-bottom: 1px dashed rgba(255,255,255,.09); vertical-align: top; }
+    th { text-align:left; color: var(--muted); font-weight:600; letter-spacing:.3px; font-size: 14px; }
+    td.desc strong { color: var(--fg); }
+    .money { text-align:right; white-space:nowrap; }
+    .muted { color: var(--muted); font-size: 13px; }
+    .total { display:flex; align-items:center; justify-content: space-between; gap: 12px; padding: 14px 16px; background: #151515; border: 1px solid rgba(255,255,255,.08); border-radius: 14px; font-weight: 700; }
+    .total .amount { font-size: clamp(22px, 3.2vw, 28px); }
+    .pill { display:inline-flex; align-items:center; gap:8px; background: var(--pill); border: 1px solid rgba(255,255,255,.08); padding: 8px 10px; border-radius: 999px; font-size: 12px; }
+    footer { margin-top: 28px; color: var(--muted); font-size: 12px; display:flex; gap:16px; flex-wrap:wrap; }
+    .cta { margin-top: 18px; display:flex; flex-wrap:wrap; gap:10px; }
+    .btn { background: transparent; color: var(--fg); border:1px solid rgba(255,255,255,.18); padding:10px 14px; border-radius: 10px; text-decoration:none; }
+    .btn.primary { background: var(--fg); color: #111; font-weight:700; }
+    .note { font-size: 12px; color: var(--muted); line-height:1.5; }
+    .strike { text-decoration: line-through; opacity:.7; }
+    .full { grid-column: 1 / -1; }
+    .pairs { display: grid; gap: 16px; }
+    .pair { display:grid; grid-template-columns: 1fr; gap:12px; }
+    @media (min-width:720px){ .pair{ grid-template-columns: 1fr 1fr; } }
+    .frame { position:relative; border-radius:14px; overflow:hidden; background:#0f0f0f; border:1px solid rgba(255,255,255,.08); }
+    .frame img { display:block; width:100%; height:auto; }
+    .tag { position:absolute; top:8px; left:8px; background:rgba(0,0,0,.55); padding:4px 10px; border-radius:999px; font-size:12px; color:#fff; border:1px solid rgba(255,255,255,.2); }
+    .caption { margin-top:6px; color: var(--muted); font-size:12px; text-align:center; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="/Img/logo_M4CH1N4-CYBERPUNK ACID SLIME GREEN RUST .png" alt="M4CH1N4 logo">
+        <div class="title">Cotización</div>
+      </div>
+      <div class="badge"> Sept-17-2025</div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h1>Servicio de cobertura con impresión & edición IA</h1>
+        <p class="muted">Desglose de rubros para evento con 150 fotos. Precios en MXN.</p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th class="money">Importe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="desc"><strong>Cobertura (fotógrafo + iluminación, 4&nbsp;h)</strong><br><span class="muted">Producción y control de iluminación en set.</span></td>
+              <td class="money">$3,500</td>
+            </tr>
+            <tr>
+              <td class="desc"><strong>Consumible de impresión</strong><br><span class="muted">$25 por foto × 150 impresiones.</span></td>
+              <td class="money">$3,750</td>
+            </tr>
+            <tr>
+              <td class="desc"><strong>Renta de impresora</strong><br><span class="muted">Equipo dedicado + mantenimiento.</span></td>
+              <td class="money">$4,000</td>
+            </tr>
+            <tr>
+              <td class="desc"><strong>Edición con IA (lote de 150)</strong><br><span class="muted">$7.50 por foto ($1,125) + operador ($2,000) + ajuste adicional ($5,000).</span></td>
+              <td class="money">$8,125</td>
+            </tr>
+            <tr>
+              <td class="desc"><strong>Renta de computadora + operador (soporte de evento)</strong><br><span class="muted">Flujo de trabajo, colas de impresión y QA.</span></td>
+              <td class="money">$5,625</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="cta">
+          <div class="total">
+            <div>Total</div>
+            <div class="amount">$25,000 MXN</div>
+          </div>
+          <span class="pill">150 fotos • impresión incluida</span>
+        </div>
+
+        <p class="note">* El precio incluye insumos calculados a 150 impresiones. Cambios en volumen ajustan consumible y edición proporcionalmente. <strong>No incluye traslados ni viáticos.</strong></p>
+      </section>
+
+      <aside class="card">
+        <h2 style="margin:8px 0 6px; font-size:18px;">Condiciones</h2>
+        <ul class="muted" style="margin:0 0 12px 16px; line-height:1.6;">
+          <li>Vigencia: 7 días.</li>
+          <li>Anticipo: 50% a la confirmación.</li>
+          <li>Saldo: 50% contra entrega de material.</li>
+          <li>Entrega: digital + impresiones en sitio.</li>
+          <li><strong>No incluye traslados ni viáticos:</strong> transporte,alimentación y hospedaje (si aplica) se cotizan aparte según sede y distancia.</li>
+        </ul>
+        <h3 style="margin:8px 0 6px; font-size:16px;">Opcionales</h3>
+        <ul class="muted" style="margin:0 0 8px 16px; line-height:1.6;">
+          <li>Horas extra de cobertura.</li>
+          <li>Back‑up de impresora y papel adicional.</li>
+          <li>Retoque individual avanzado por foto.</li>
+        </ul>
+      </aside>
+          
+      <section class="card full">
+        <h2 style="margin:0 0 8px; font-size:20px;">Antes / Después</h2>
+        <p class="muted" style="margin:0 0 12px;">Muestras de recreación de retrato infantil, estudio 90s</p>
+        <div class="pairs">
+          <div class="pair">
+            <div>
+              <div class="frame">
+                <span class="tag">Antes</span>
+                <img alt="Ejemplo 1 — antes" src="/Img/1_2.jpg">
+              </div>
+              <div class="caption">Retrato actual, encuadre natural</div>
+            </div>
+            <div>
+              <div class="frame">
+                <span class="tag">Después</span>
+                <img alt="Ejemplo 1 — después" src="/Img/1.png"/>
+              </div>
+              <div class="caption">Recreación retrato infantil, estudio 90s</div>
+            </div>
+          </div>
+
+          <div class="pair">
+            <div>
+              <div class="frame">
+                <span class="tag">Antes</span>
+                <img alt="Ejemplo 2 — antes" src="/Img/2.jpg"/>
+              </div>
+              <div class="caption">Retrato actual, encuadre natural</div>
+            </div>
+            <div>
+              <div class="frame">
+                <span class="tag">Después</span>
+                <img alt="Ejemplo 2 — después" src="/Img/2_2.jpg"/>
+              </div>
+              <div class="caption">Recreación retrato infantil, estudio 90s</div>
+            </div>
+          </div>
+
+          <div class="pair">
+            <div>
+              <div class="frame">
+                <span class="tag">Antes</span>
+                <img alt="Ejemplo 3 — antes" src="/Img/3_2.jpg"/>
+              </div>
+              <div class="caption">Retrato actual, encuadre natural</div>
+            </div>
+            <div>
+              <div class="frame">
+                <span class="tag">Después</span>
+                <img alt="Ejemplo 3 — después" src="/Img/3.jpg"/>
+              </div>
+              <div class="caption">Recreación retrato infantil, estudio 90s</div>
+            </div>
+          </div>
+        </div>
+      </section>
+          
+      <section class="card full">
+        <h2 style="margin:0 0 8px; font-size:20px;">Concepto</h2>
+        <p class="muted" style="margin:0 0 10px;">Tomamos tu <strong>yo actual</strong> y lo reimaginamos como un <strong>retrato infantil noventero</strong> —estética estudio tipo Sears—: luz suave en clave media, fondo degradado, ese guiño clásico del sello de fecha. Es un viaje de ida y vuelta: nostalgia con rigor técnico, memoria sin perder tu identidad presente.</p>
+        <ul class="muted" style="margin:0 0 10px 18px; line-height:1.6;">
+          <li><strong>Propósito:</strong> celebrar la biografía visual, resignificar el álbum familiar y crear piezas listas para regalo, exhibición o activaciones de marca.</li>
+          <li><strong>Cómo funciona:</strong> (1) sesión actual en estudio/on‑location; (2) <em>match</em> de pose y estilismo (denim, rayas, peinados clásicos); (3) post con IA + retoque: grano químico, gamma noventera, tonos cian/magenta, viñeta sutil y sello de fecha opcional; (4) entrega en galería digital e impresión.</li>
+          <li><strong>Valores de producción:</strong> dirección de iluminación controlada, reproducción cromática consistente, textura y contraste propios de foto de laboratorio de los 90.</li>
+          <li><strong>Opcionales:marco acrílico y tiraje numerado.</li>
+          <li><strong>Ética & privacidad:</strong> tratamiento respetuoso de imagen, consentimiento explícito; usamos IA para <em>estilizar</em>, no para suplantar identidades.</li>
+        </ul>
+        <p class="muted" style="margin:6px 0 0;">Resultado: una pieza que parece salida de 1990's, pero contada por quien eres hoy. Tradición + tecnología, powred by m4ch1n4 IA.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>© M4CH1N4- MMXXV</span>
+      <span>Contacto:  <a style="color: #17c964;" href="https://wa.me/525610991081?text=hola" target="_blank" rel="noopener noreferrer">whts</a></span>
+    </footer>
+  </div>
+</body>
+</html>
