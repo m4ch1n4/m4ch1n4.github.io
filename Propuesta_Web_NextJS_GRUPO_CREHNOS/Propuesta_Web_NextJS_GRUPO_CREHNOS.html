@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta — Desarrollo Web en Next.js · Cliente: GRUPO CREHNOS</title>
+<style>
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#fff;
+    color:#000;
+    line-height:1.6;
+  }
+  .page{
+    max-width:900px;
+    margin:40px auto;
+    padding:0 20px 60px;
+  }
+  header{
+    border-bottom:1px solid #000;
+    padding-bottom:20px;
+    margin-bottom:20px;
+  }
+  header h1{margin:0;font-size:24px;color:#000;}
+  header p{margin:4px 0 0;font-size:14px;}
+  h2{font-size:18px;margin-top:30px;border-bottom:1px solid #000;padding-bottom:4px;}
+  h3{margin:10px 0 5px;font-size:16px;}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px;}
+  .card{border:1px solid #000;padding:12px;page-break-inside: avoid;}
+  .price{font-weight:bold;margin:6px 0;}
+  ul{margin:8px 0;padding-left:18px;}
+  ul li{margin:4px 0;}
+  .note{font-size:12px;margin-top:6px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+  .block{border:1px solid #000;padding:12px;page-break-inside: avoid;}
+  .terms{border:1px solid #000;margin-top:20px;padding:12px;page-break-inside: avoid;}
+  .terms ol{padding-left:18px;margin:8px 0;}
+  .terms li{margin:4px 0;}
+  footer{border-top:1px solid #000;margin-top:30px;padding-top:8px;font-size:12px;display:flex;justify-content:space-between;align-items:center;}
+  .print-btn{margin:0;padding:8px 14px;font-size:14px;background:#000;color:#fff;border:none;cursor:pointer;}
+
+  /* Ajustes de impresión */
+  @page {
+    size: letter;
+    margin: 25mm;
+  }
+  @media print {
+    body { margin:0; }
+    .print-btn { display:none; }
+    .page { margin:0; padding:0; }
+    .card, .block, .terms { page-break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>M4CH1N4 · Propuesta Ejecutiva</h1>
+      <p>Desarrollo Web en Next.js — Cliente: <strong>GRUPO CREHNOS</strong></p>
+    </header>
+
+    <h2>Planes de Desarrollo</h2>
+    <div class="plans">
+      <div class="card">
+        <h3>Básico</h3>
+        <div class="price">$15,000 MXN</div>
+        <ul>
+          <li>Desarrollo en Next.js</li>
+          <li>Diseño responsivo y corporativo</li>
+          <li>Secciones: Home, Nosotros, Servicios resumido, Casos de uso, Contacto</li>
+          <li>SEO básico: metatags simples</li>
+          <li>Sitemap.xml y robots.txt</li>
+          <li>Formulario de contacto a correo corporativo</li>
+        </ul>
+        <p class="note">Objetivo: sitio funcional y usable en tiempo récord.</p>
+      </div>
+
+      <div class="card">
+        <h3>Medio</h3>
+        <div class="price">$20,000 MXN</div>
+        <ul>
+          <li>Incluye todo lo del Plan Básico</li>
+          <li>SEO avanzado On-Page: Metatags optimizados, Schema.org en servicios, URLs amigables</li>
+          <li>Integración con Google Search Console y Analytics</li>
+          <li>Rich snippets en servicios</li>
+          <li>Animaciones y microinteracciones para UX</li>
+          <li>Botón flotante de WhatsApp Business</li>
+        </ul>
+        <p class="note">Objetivo: mejorar posicionamiento y facilitar comunicación inmediata.</p>
+      </div>
+
+      <div class="card">
+        <h3>Óptimo</h3>
+        <div class="price">$35,000 MXN</div>
+        <ul>
+          <li>Incluye todo lo del Plan Medio</li>
+          <li>SEO premium: auditoría de competencia + roadmap de keywords</li>
+          <li>Seguridad reforzada (protecciones básicas + backups)</li>
+          <li>Optimización de velocidad y assets</li>
+          <li>WhatsApp Business con mensajes automatizados</li>
+        </ul>
+        <p class="note">Objetivo: escalar la marca con SEO profundo + comunicación optimizada.</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="block">
+        <h3>Forma de Pago</h3>
+        <ul>
+          <li>70% de anticipo a la aceptación del presupuesto</li>
+          <li>30% contra entrega final</li>
+          <li>Pago mediante transferencia bancaria</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Alcance</h3>
+        <ul>
+          <li>El cliente provee contenidos y accesos necesarios</li>
+          <li>Hasta 2 rondas de ajustes incluidas</li>
+          <li>Tiempos sujetos a disponibilidad y plan elegido</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="terms">
+      <h3>Términos y Condiciones</h3>
+      <ol>
+        <li>No se reembolsa el anticipo si el Cliente rescinde tras iniciar el proyecto.</li>
+        <li>Si el proveedor detiene servicios, se liquida lo trabajado y aplica 20% de penalización sobre total.</li>
+        <li>La entrega depende de que el Cliente entregue la información a tiempo.</li>
+        <li>El Cliente revisa y aprueba textos, imágenes y datos antes de publicación.</li>
+        <li>Propuestas no aceptadas quedan libres para uso del proveedor.</li>
+        <li>El proveedor puede mostrar trabajos en su portafolio y redes.</li>
+        <li>Cambios de orientación y consultoria no incluidos se cotizan aparte.</li>
+        <li>Servicios extra y consultoria corren por parte del Cliente o se cotizan.</li>
+        <li>Los derechos se transfieren al liquidarse el 100% del pago.</li>
+        <li>Validez de la propuesta: 5 días naturales.</li>
+      </ol>
+    </div>
+
+    <footer>
+      <div>M4CH1N4 — Tel. 5510991081</div>
+      <div>Propuesta para GRUPO CREHNOS</div>
+      <button class="print-btn" onclick="window.print()">Imprimir en PDF</button>
+    </footer>
+  </div>
+</body>
+</html>
