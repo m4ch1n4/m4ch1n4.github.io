@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnóstico de Transformación Comercial | M4CH1N4</title>
+  <meta name="description" content="Diagnóstico ejecutivo para detectar oportunidades de estructuración comercial, CRM, automatización, productos recurrentes y expansión B2B." />
+  <style>
+    :root{
+      --bg:#070707;--panel:#111;--panel2:#171717;--text:#f4f4f4;--muted:#a8a8a8;
+      --line:#2b2b2b;--accent:#d8ff3e;--danger:#ff6767;--radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at top right,#202020 0,#070707 38%);color:var(--text);font:16px/1.55 Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:inherit}
+    .shell{width:min(1100px,calc(100% - 28px));margin:auto;padding:44px 0 80px}
+    .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:800}
+    h1{font-size:clamp(2.3rem,6vw,5.4rem);line-height:.95;letter-spacing:-.055em;margin:.5rem 0 1.25rem;max-width:900px}
+    .intro{font-size:clamp(1rem,2vw,1.25rem);max-width:780px;color:#d2d2d2}
+    .note{margin-top:20px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;color:var(--muted);background:rgba(255,255,255,.025)}
+    .progress-wrap{position:sticky;top:0;z-index:20;background:rgba(7,7,7,.88);backdrop-filter:blur(14px);padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07);margin:30px 0}
+    .progress-row{display:flex;justify-content:space-between;font-size:.82rem;color:var(--muted);margin-bottom:7px}
+    .progress{height:7px;background:#252525;border-radius:99px;overflow:hidden}
+    .progress>span{display:block;width:0;height:100%;background:var(--accent);transition:.25s ease}
+    form{display:grid;gap:18px}
+    fieldset{margin:0;padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.04),rgba(255,255,255,.015))}
+    legend{padding:0 10px;font-size:1.15rem;font-weight:800}
+    .section-copy{color:var(--muted);margin:0 0 20px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .full{grid-column:1/-1}
+    label{display:block;font-weight:700;margin-bottom:7px}
+    .hint{display:block;font-size:.83rem;color:var(--muted);font-weight:400;margin-top:3px}
+    input,select,textarea{width:100%;border:1px solid #383838;background:#0b0b0b;color:var(--text);padding:13px 14px;border-radius:11px;font:inherit;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(216,255,62,.1)}
+    textarea{min-height:110px;resize:vertical}
+    .scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}
+    .scale input{position:absolute;opacity:0;pointer-events:none}
+    .scale label{margin:0;padding:10px 6px;text-align:center;border:1px solid #383838;border-radius:9px;background:#0b0b0b;cursor:pointer;font-size:.84rem;font-weight:700}
+    .scale input:checked+label{background:var(--accent);color:#000;border-color:var(--accent)}
+    .question{padding:15px 0;border-top:1px solid #292929}
+    .question:first-of-type{border-top:0;padding-top:0}
+    .checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .check{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid #333;border-radius:10px;background:#0b0b0b}
+    .check input{width:auto;margin-top:5px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+    button{appearance:none;border:0;border-radius:999px;padding:14px 22px;font:700 1rem inherit;cursor:pointer}
+    .primary{background:var(--accent);color:#050505}
+    .secondary{background:#242424;color:#fff;border:1px solid #3b3b3b}
+    .result{display:none;margin-top:28px;border:1px solid #39411d;background:linear-gradient(145deg,#171b0c,#0d0f08);border-radius:24px;padding:26px}
+    .result.show{display:block}
+    .score{font-size:clamp(3.2rem,8vw,6.4rem);line-height:1;font-weight:900;letter-spacing:-.06em;color:var(--accent)}
+    .result-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:24px;align-items:start}
+    .pill{display:inline-block;border:1px solid #59652c;color:var(--accent);border-radius:99px;padding:5px 10px;font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+    .recommendations{display:grid;gap:10px;margin-top:16px}
+    .rec{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:12px;padding:14px}
+    .rec strong{display:block;margin-bottom:4px}
+    .footer{margin-top:34px;color:var(--muted);font-size:.84rem}
+    @media(max-width:760px){.grid,.checks,.result-grid{grid-template-columns:1fr}.scale{grid-template-columns:repeat(5,minmax(44px,1fr))}.shell{padding-top:28px}fieldset{padding:19px}}
+    @media print{body{background:#fff;color:#111}.progress-wrap,.actions,.note{display:none}.shell{width:100%;padding:0}fieldset{break-inside:avoid;background:#fff;border-color:#bbb}.result{display:block!important;background:#fff;border-color:#777}.score,.pill{color:#111}.rec{border-color:#bbb}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="eyebrow">M4CH1N4 · Business Systems</div>
+    <h1>Diagnóstico de transformación comercial y operativa</h1>
+    <p class="intro">Este formulario identifica qué necesita realmente una empresa: estructuración comercial, CRM, automatización, productos recurrentes, plataforma B2B o expansión. No es un cuestionario de branding.</p>
+    <div class="note">Tiempo estimado: 12–18 minutos. El diagnóstico es orientativo y debe validarse después con información financiera, entrevistas y revisión de procesos.</div>
+
+    <div class="progress-wrap">
+      <div class="progress-row"><span>Avance del diagnóstico</span><span id="progressText">0%</span></div>
+      <div class="progress"><span id="progressBar"></span></div>
+    </div>
+
+    <form id="diagnosticForm">
+      <fieldset>
+        <legend>1. Contexto de la empresa</legend>
+        <p class="section-copy">Datos necesarios para dimensionar el tipo de solución y no proponer tecnología fuera de escala.</p>
+        <div class="grid">
+          <div><label for="company">Empresa *</label><input id="company" name="company" required /></div>
+          <div><label for="contact">Responsable *</label><input id="contact" name="contact" required /></div>
+          <div><label for="email">Correo *</label><input id="email" name="email" type="email" required /></div>
+          <div><label for="phone">Teléfono / WhatsApp</label><input id="phone" name="phone" /></div>
+          <div><label for="sector">Sector *</label><input id="sector" name="sector" required placeholder="Naval, industrial, servicios, salud…" /></div>
+          <div><label for="years">Años operando</label><input id="years" name="years" type="number" min="0" /></div>
+          <div><label for="employees">Tamaño del equipo</label><select id="employees" name="employees"><option value="">Selecciona</option><option>1–10</option><option>11–30</option><option>31–100</option><option>101–300</option><option>Más de 300</option></select></div>
+          <div><label for="revenue">Facturación anual aproximada<span class="hint">Puede responderse como rango.</span></label><select id="revenue" name="revenue"><option value="">Prefiero no responder</option><option>Menos de $5 millones MXN</option><option>$5–20 millones MXN</option><option>$20–100 millones MXN</option><option>$100–500 millones MXN</option><option>Más de $500 millones MXN</option></select></div>
+          <div class="full"><label for="objective">¿Qué quieren lograr en los próximos 12–24 meses? *</label><textarea id="objective" name="objective" required placeholder="Crecer ventas, abrir nuevos mercados, ordenar operaciones, reducir tiempos, profesionalizar la empresa…"></textarea></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Estructura comercial</legend>
+        <p class="section-copy">Califica de 1 a 5. Uno significa inexistente o improvisado; cinco significa documentado, medido y consistente.</p>
+        <div id="scales"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Tecnología y automatización</legend>
+        <p class="section-copy">Marca lo que ya utilizan de manera real, no lo que está contratado pero nadie opera.</p>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="systems" value="crm" /> CRM actualizado por el equipo</label>
+          <label class="check"><input type="checkbox" name="systems" value="erp" /> ERP o sistema administrativo integrado</label>
+          <label class="check"><input type="checkbox" name="systems" value="ecommerce" /> Ecommerce o portal de pedidos</label>
+          <label class="check"><input type="checkbox" name="systems" value="whatsapp" /> WhatsApp centralizado y trazable</label>
+          <label class="check"><input type="checkbox" name="systems" value="email" /> Correos y solicitudes entran a un pipeline</label>
+          <label class="check"><input type="checkbox" name="systems" value="dashboards" /> Tableros gerenciales confiables</label>
+          <label class="check"><input type="checkbox" name="systems" value="automation" /> Automatizaciones activas</label>
+          <label class="check"><input type="checkbox" name="systems" value="documents" /> Documentación y certificados centralizados</label>
+        </div>
+        <div class="grid" style="margin-top:18px">
+          <div><label for="tools">Herramientas actuales</label><textarea id="tools" name="tools" placeholder="Shopify, Excel, SAP, Odoo, HubSpot, WhatsApp, Gmail…"></textarea></div>
+          <div><label for="pain">¿Dónde se pierde más tiempo o dinero? *</label><textarea id="pain" name="pain" required placeholder="Cotizaciones, seguimiento, compras, inventario, coordinación, servicio…"></textarea></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Ventas, rentabilidad y crecimiento</legend>
+        <div class="grid">
+          <div><label for="leads">Solicitudes o leads por mes</label><input id="leads" name="leads" type="number" min="0" /></div>
+          <div><label for="quotes">Cotizaciones por mes</label><input id="quotes" name="quotes" type="number" min="0" /></div>
+          <div><label for="conversion">Conversión aproximada (%)</label><input id="conversion" name="conversion" type="number" min="0" max="100" /></div>
+          <div><label for="ticket">Ticket promedio (MXN)</label><input id="ticket" name="ticket" type="number" min="0" /></div>
+          <div><label for="margin">Margen bruto aproximado (%)</label><input id="margin" name="margin" type="number" min="0" max="100" /></div>
+          <div><label for="response">Tiempo promedio para cotizar</label><select id="response" name="response"><option value="">No medido</option><option>Menos de 2 horas</option><option>2–8 horas</option><option>1 día</option><option>2–3 días</option><option>Más de 3 días</option></select></div>
+          <div class="full"><label for="lost">Principales razones por las que pierden ventas</label><textarea id="lost" name="lost" placeholder="Precio, falta de seguimiento, respuesta lenta, disponibilidad, crédito, competencia…"></textarea></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Productos y recurrencia</legend>
+        <div class="grid">
+          <div><label for="model">Modelo principal de ingresos *</label><select id="model" name="model" required><option value="">Selecciona</option><option>Venta de productos</option><option>Servicios por proyecto</option><option>Contratos recurrentes</option><option>Distribución / comercialización</option><option>Modelo híbrido</option></select></div>
+          <div><label for="recurrence">Porcentaje de ingresos recurrentes</label><select id="recurrence" name="recurrence"><option value="">No medido</option><option>0–10%</option><option>11–30%</option><option>31–60%</option><option>Más de 60%</option></select></div>
+          <div class="full"><label for="newProducts">¿Qué servicios o productos podrían empaquetarse como contrato, membresía, kit o mantenimiento recurrente?</label><textarea id="newProducts" name="newProducts"></textarea></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. Prioridades</legend>
+        <p class="section-copy">Selecciona máximo cinco resultados prioritarios.</p>
+        <div class="checks" id="priorities">
+          <label class="check"><input type="checkbox" name="priority" value="structure" /> Ordenar áreas, roles y responsabilidades</label>
+          <label class="check"><input type="checkbox" name="priority" value="crm" /> Implantar CRM y proceso comercial</label>
+          <label class="check"><input type="checkbox" name="priority" value="quote" /> Automatizar solicitudes y cotizaciones</label>
+          <label class="check"><input type="checkbox" name="priority" value="portal" /> Crear portal B2B o autoservicio</label>
+          <label class="check"><input type="checkbox" name="priority" value="products" /> Diseñar productos recurrentes</label>
+          <label class="check"><input type="checkbox" name="priority" value="prospecting" /> Generar nuevos clientes B2B</label>
+          <label class="check"><input type="checkbox" name="priority" value="inventory" /> Mejorar inventario y abastecimiento</label>
+          <label class="check"><input type="checkbox" name="priority" value="data" /> Crear indicadores y tableros</label>
+          <label class="check"><input type="checkbox" name="priority" value="brandSystem" /> Ordenar comunicación y sistema de marca</label>
+          <label class="check"><input type="checkbox" name="priority" value="expansion" /> Expandirse a nuevos sectores o regiones</label>
+        </div>
+        <div class="grid" style="margin-top:18px">
+          <div><label for="budget">Inversión prevista</label><select id="budget" name="budget"><option value="">Por definir</option><option>Menos de $150,000 MXN</option><option>$150,000–$350,000 MXN</option><option>$350,000–$750,000 MXN</option><option>$750,000–$1.5 millones MXN</option><option>Más de $1.5 millones MXN</option></select></div>
+          <div><label for="timeline">Cuándo necesitan comenzar</label><select id="timeline" name="timeline"><option>Inmediatamente</option><option>En 1–3 meses</option><option>En 3–6 meses</option><option>Este año, sin fecha definida</option></select></div>
+          <div class="full"><label for="decision">¿Quién participa en la decisión?</label><textarea id="decision" name="decision" placeholder="Dirección, ventas, operaciones, finanzas, socios…"></textarea></div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button class="primary" type="submit">Generar diagnóstico preliminar</button>
+        <button class="secondary" type="button" id="resetBtn">Limpiar</button>
+      </div>
+    </form>
+
+    <section class="result" id="result" aria-live="polite">
+      <div class="result-grid">
+        <div>
+          <span class="pill" id="maturityLabel">Nivel</span>
+          <div class="score"><span id="score">0</span>/100</div>
+          <p id="scoreCopy"></p>
+        </div>
+        <div>
+          <h2>Oferta recomendada</h2>
+          <p id="diagnosticSummary"></p>
+          <div class="recommendations" id="recommendations"></div>
+          <div class="actions">
+            <button class="primary" type="button" id="copyBtn">Copiar resumen</button>
+            <button class="secondary" type="button" onclick="window.print()">Guardar como PDF</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="footer">M4CH1N4 · Diagnóstico preliminar de sistemas comerciales y operativos. Los datos permanecen en este navegador mientras no se conecte un CRM o endpoint externo.</p>
+  </main>
+
+  <script>
+    const questions = [
+      ['strategy','Existe una estrategia comercial clara y conocida por el equipo'],
+      ['segments','Los segmentos y clientes prioritarios están definidos'],
+      ['offer','La oferta está organizada en líneas de negocio comprensibles'],
+      ['roles','Ventas, cotización, compras y operaciones tienen responsables claros'],
+      ['process','El proceso desde solicitud hasta postventa está documentado'],
+      ['followup','Todas las cotizaciones reciben seguimiento medible'],
+      ['data','La dirección puede consultar indicadores confiables'],
+      ['customers','Existe historial completo por cliente, proyecto o activo'],
+      ['recurring','La empresa genera recompra o contratos recurrentes'],
+      ['scalable','La operación puede crecer sin depender de una sola persona']
+    ];
+
+    const scales = document.getElementById('scales');
+    questions.forEach(([key,text],index)=>{
+      const wrap=document.createElement('div'); wrap.className='question';
+      wrap.innerHTML=`<label>${index+1}. ${text} *</label><div class="scale">${[1,2,3,4,5].map(n=>`<input required type="radio" id="${key}${n}" name="${key}" value="${n}"><label for="${key}${n}">${n}</label>`).join('')}</div>`;
+      scales.appendChild(wrap);
+    });
+
+    const form=document.getElementById('diagnosticForm');
+    const progressBar=document.getElementById('progressBar');
+    const progressText=document.getElementById('progressText');
+    const required=[...form.querySelectorAll('[required]')];
+
+    function updateProgress(){
+      let complete=0;
+      required.forEach(el=>{
+        if(el.type==='radio'){
+          if(form.querySelector(`[name="${el.name}"]:checked`)) complete++;
+        }else if(String(el.value).trim()) complete++;
+      });
+      const uniqueRadioNames=new Set(required.filter(x=>x.type==='radio').map(x=>x.name));
+      const nonRadios=required.filter(x=>x.type!=='radio').length;
+      const total=uniqueRadioNames.size+nonRadios;
+      const completedRadio=[...uniqueRadioNames].filter(name=>form.querySelector(`[name="${name}"]:checked`)).length;
+      const completedNonRadio=required.filter(x=>x.type!=='radio'&&String(x.value).trim()).length;
+      const pct=Math.round(((completedRadio+completedNonRadio)/total)*100);
+      progressBar.style.width=pct+'%'; progressText.textContent=pct+'%';
+    }
+    form.addEventListener('input',updateProgress);
+
+    document.getElementById('priorities').addEventListener('change',e=>{
+      const checked=form.querySelectorAll('[name="priority"]:checked');
+      if(checked.length>5){e.target.checked=false;alert('Selecciona máximo cinco prioridades.');}
+    });
+
+    function buildRecommendations(score){
+      const priorities=[...form.querySelectorAll('[name="priority"]:checked')].map(x=>x.value);
+      const systems=[...form.querySelectorAll('[name="systems"]:checked')].map(x=>x.value);
+      const recs=[];
+      const add=(title,copy)=>{if(!recs.some(r=>r.title===title))recs.push({title,copy})};
+
+      if(score<55||priorities.includes('structure')) add('1. Blueprint de estructuración empresarial','Mapa de líneas de negocio, organigrama funcional, responsabilidades, procesos y hoja de ruta de 12 meses.');
+      if(!systems.includes('crm')||priorities.includes('crm')) add('2. CRM y sistema comercial','Pipeline único para solicitudes, cotizaciones, seguimiento, clientes, proyectos y recompra.');
+      if(priorities.includes('quote')||Number(form.quotes.value)>15) add('3. Cotización inteligente','Captura desde correo, WhatsApp, PDF o Excel; extracción automática y borrador validado por el equipo.');
+      if(priorities.includes('products')||form.recurrence.value==='0–10%'||form.recurrence.value==='No medido') add('4. Diseño de productos recurrentes','Convertir capacidades actuales en contratos, membresías, kits, mantenimiento o inventario administrado.');
+      if(priorities.includes('portal')) add('5. Portal B2B','Acceso para cotizaciones, pedidos, documentos, certificados, recompra y atención prioritaria.');
+      if(priorities.includes('prospecting')||priorities.includes('expansion')) add('6. Motor de crecimiento B2B','Segmentación de cuentas, prospección, campañas por industria y expansión geográfica o sectorial.');
+      if(priorities.includes('data')||!systems.includes('dashboards')) add('7. Inteligencia gerencial','Tableros de margen, conversión, tiempo de respuesta, recompra, desempeño y oportunidades perdidas.');
+      if(priorities.includes('inventory')) add('8. Inventario y abastecimiento','Clasificación ABC, mínimos, máximos, partes críticas, alertas y reposición automatizada.');
+      if(priorities.includes('brandSystem')) add('9. Sistema de comunicación comercial','Ordenar narrativa, presentaciones, fichas, casos de éxito y mensajes por segmento sin reemplazar la marca.');
+      return recs.slice(0,6);
+    }
+
+    form.addEventListener('submit',e=>{
+      e.preventDefault();
+      const values=questions.map(([key])=>Number(form.querySelector(`[name="${key}"]:checked`).value));
+      const base=Math.round((values.reduce((a,b)=>a+b,0)/50)*80);
+      const systemsCount=form.querySelectorAll('[name="systems"]:checked').length;
+      const score=Math.min(100,base+Math.round((systemsCount/8)*20));
+
+      let label,copy;
+      if(score<35){label='Estructura crítica';copy='La empresa probablemente depende de personas clave, procesos manuales y conocimiento disperso. Primero debe ordenarse; todavía no conviene automatizarlo todo.'}
+      else if(score<55){label='Estructura reactiva';copy='Existen capacidades comerciales, pero la operación sigue siendo inconsistente. La prioridad es definir procesos, responsables y un CRM mínimo viable.'}
+      else if(score<75){label='Base escalable';copy='La empresa cuenta con una base funcional. Puede acelerar resultados integrando datos, automatizaciones y productos recurrentes.'}
+      else{label='Madurez avanzada';copy='La empresa está lista para optimización, inteligencia predictiva, portales de clientes y expansión sistemática.'}
+
+      const recs=buildRecommendations(score);
+      document.getElementById('score').textContent=score;
+      document.getElementById('maturityLabel').textContent=label;
+      document.getElementById('scoreCopy').textContent=copy;
+      document.getElementById('diagnosticSummary').textContent=`Para ${form.company.value}, la recomendación no es comenzar por un rebranding, sino por una intervención modular de transformación comercial y operativa. El alcance debe priorizar los sistemas que impacten ventas, margen, velocidad de respuesta y recurrencia.`;
+      document.getElementById('recommendations').innerHTML=recs.map(r=>`<div class="rec"><strong>${r.title}</strong>${r.copy}</div>`).join('');
+      document.getElementById('result').classList.add('show');
+      document.getElementById('result').scrollIntoView({behavior:'smooth'});
+
+      const payload={createdAt:new Date().toISOString(),company:form.company.value,contact:form.contact.value,email:form.email.value,score,label,recommendations:recs,form:Object.fromEntries(new FormData(form).entries())};
+      localStorage.setItem('m4ch1n4-diagnostic-latest',JSON.stringify(payload));
+    });
+
+    document.getElementById('copyBtn').addEventListener('click',async()=>{
+      const text=`DIAGNÓSTICO M4CH1N4\nEmpresa: ${form.company.value}\nMadurez: ${document.getElementById('score').textContent}/100 — ${document.getElementById('maturityLabel').textContent}\n\n${document.getElementById('scoreCopy').textContent}\n\nOferta recomendada:\n${[...document.querySelectorAll('.rec')].map(x=>'• '+x.innerText).join('\n')}`;
+      await navigator.clipboard.writeText(text);
+      document.getElementById('copyBtn').textContent='Resumen copiado';
+      setTimeout(()=>document.getElementById('copyBtn').textContent='Copiar resumen',1600);
+    });
+
+    document.getElementById('resetBtn').addEventListener('click',()=>{
+      if(confirm('¿Limpiar todas las respuestas?')){form.reset();document.getElementById('result').classList.remove('show');updateProgress();localStorage.removeItem('m4ch1n4-diagnostic-latest');}
+    });
+    updateProgress();
+  </script>
+</body>
+</html>
