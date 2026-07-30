@@ -171,12 +171,16 @@ $(document).ready(function() {
 				else {
 					setTimeout(function(){
 			        	$('#initial-loader').remove();
+			        	enterDemo5();
 			        }, 1001);
 				}
 		    }
 		}, 10);
 	}
 
+	function enterDemo5() {
+		window.location.replace('/demo_5/');
+	}
 
 
 	// GLITCHING
@@ -329,6 +333,7 @@ $(document).ready(function() {
 		setTimeout(function(){
 			animateable = false;
 			$('#loader').remove();
+			enterDemo5();
 		}, 1600);
 	}
 
