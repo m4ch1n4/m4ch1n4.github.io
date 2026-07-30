@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M4CH1N4 — Alquimista digital / Demo 5</title>
+<meta name="description" content="M4CH1N4 es la práctica de Josh Mendoza como alquimista digital: imagen, espacio, tecnología, interacción e inteligencia artificial.">
+<meta name="theme-color" content="#030303">
+<style>
+@font-face{font-family:"Old Times American Titling W00";src:url("/Old Times American Titling W00.ttf") format("truetype");font-display:swap}
+:root{
+  --ink:#eee9e2;
+  --paper:#d6d0c7;
+  --muted:#98939d;
+  --black:#030303;
+  --coal:#08070a;
+  --panel:#0b0a0e;
+  --lime:#b8ff16;
+  --lime-soft:rgba(184,255,22,.10);
+  --purple:#9538ff;
+  --purple-soft:rgba(149,56,255,.13);
+  --line:rgba(238,233,226,.14);
+  --line-strong:rgba(238,233,226,.28);
+  --max:1440px;
+  --pad:clamp(20px,4.2vw,72px);
+  --serif:Baskerville,"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --typewriter:"Old Times American Titling W00","American Typewriter","Nimbus Mono PS","Courier New",monospace;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--black)}
+body{margin:0;background:radial-gradient(circle at 82% 7%,rgba(149,56,255,.14),transparent 27%),radial-gradient(circle at 12% 31%,rgba(184,255,22,.045),transparent 22%),linear-gradient(180deg,var(--black) 0,var(--coal) 52%,var(--black) 100%);color:var(--ink);font-family:var(--sans);line-height:1.5;overflow-x:hidden;cursor:crosshair}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--lime);color:#030303}
+.shell{width:min(var(--max),calc(100% - var(--pad)*2));margin-inline:auto}
+.type{font-family:var(--typewriter);letter-spacing:.1em;text-transform:uppercase}
+.eyebrow{font-family:var(--typewriter);font-size:.69rem;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);display:flex;align-items:center;gap:11px}
+.eyebrow:before{content:"";width:27px;height:1px;background:currentColor;box-shadow:0 0 10px currentColor}
+.vignette,.cursor-aura{position:fixed;inset:0;pointer-events:none}
+.vignette{z-index:99;box-shadow:inset 0 0 180px rgba(0,0,0,.52)}
+.cursor-aura{z-index:98;width:290px;height:290px;inset:auto;left:var(--x,-500px);top:var(--y,-500px);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(184,255,22,.13),rgba(184,255,22,.045) 37%,rgba(149,56,255,.025) 57%,transparent 74%);filter:blur(8px)}
+.topbar{position:fixed;inset:0 0 auto;z-index:80;border-bottom:1px solid transparent;transition:.35s ease}
+.topbar.scrolled{background:rgba(3,3,3,.88);backdrop-filter:blur(17px);border-color:var(--line)}
+.nav{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.lockup{display:flex;align-items:center;gap:13px}
+.mark{width:40px;height:40px;overflow:hidden;border:1px solid rgba(184,255,22,.35);background:#08080a;box-shadow:0 0 24px rgba(184,255,22,.07)}
+.mark img{width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.08)}
+.wordmark{font-family:var(--typewriter);font-size:1.02rem;letter-spacing:.17em;text-transform:uppercase}
+.wordmark small{display:block;color:var(--muted);font-family:var(--sans);font-size:.46rem;letter-spacing:.22em;margin-top:1px}
+.navlinks{display:flex;align-items:center;gap:30px;font-family:var(--typewriter);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#aaa5ae}
+.navlinks a{position:relative;padding:8px 0}
+.navlinks a:after{content:"";position:absolute;left:0;right:100%;bottom:3px;height:1px;background:linear-gradient(90deg,var(--lime),var(--purple));transition:.25s}
+.navlinks a:hover:after{right:0}
+.init-link{border:1px solid rgba(184,255,22,.35);padding:10px 15px!important;color:var(--lime)}
+.init-link:after{display:none}.init-link:hover{background:var(--lime);color:#030303}
+.hero{min-height:100svh;padding:148px 0 72px;display:flex;align-items:flex-end;position:relative;isolation:isolate;border-bottom:1px solid var(--line)}
+.hero:before{content:"";position:absolute;inset:0;z-index:-3;background:linear-gradient(90deg,rgba(184,255,22,.022) 1px,transparent 1px),linear-gradient(rgba(149,56,255,.018) 1px,transparent 1px);background-size:82px 82px;mask-image:linear-gradient(to bottom,#000 18%,transparent 92%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.22fr) minmax(320px,.78fr);gap:clamp(50px,8vw,135px);align-items:end}
+.hero-copy{max-width:970px}
+.hero h1{margin:24px 0 29px;font-family:var(--serif);font-weight:400;font-size:clamp(4.5rem,10.4vw,10.2rem);line-height:.82;letter-spacing:-.065em}
+.hero h1 em{display:block;position:relative;width:max-content;max-width:100%;font-style:italic;color:var(--paper);font-size:.72em;letter-spacing:-.04em;margin-left:clamp(20px,8vw,135px);text-shadow:0 0 32px rgba(149,56,255,.08)}
+.glitch{position:relative}
+.glitch:before,.glitch:after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;opacity:.62;overflow:hidden}
+.glitch:before{color:var(--lime);clip-path:inset(7% 0 71% 0);transform:translate(-2px,0);animation:glitchA 4.2s infinite steps(1)}
+.glitch:after{color:var(--purple);clip-path:inset(68% 0 7% 0);transform:translate(2px,0);animation:glitchB 3.6s infinite steps(1)}
+.lead{max-width:790px;margin:0;font-family:var(--serif);font-size:clamp(1.35rem,2.3vw,2.2rem);line-height:1.28;color:#d8d2da;letter-spacing:-.018em}
+.hero-note{margin:27px 0 0;max-width:690px;color:var(--muted);font-size:.92rem;line-height:1.78}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:39px}
+.button{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:14px;padding:0 22px;border:1px solid var(--line-strong);font-family:var(--typewriter);font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;transition:.25s ease}
+.button:hover{border-color:var(--lime);background:var(--lime);color:#030303;transform:translateY(-2px);box-shadow:0 0 28px rgba(184,255,22,.09)}
+.button.primary{background:var(--ink);color:#030303;border-color:var(--ink)}
+.button.primary:hover{background:var(--lime);border-color:var(--lime)}
+.apparatus{aspect-ratio:1;position:relative;display:grid;place-items:center;max-width:570px;justify-self:end;width:100%;opacity:.96}
+.apparatus:before,.apparatus:after,.ring-a,.ring-b,.ring-c{content:"";position:absolute;border-radius:50%;border:1px solid var(--line)}
+.apparatus:before{inset:0;border-color:rgba(149,56,255,.38);animation:turn 38s linear infinite;box-shadow:inset 0 0 54px rgba(149,56,255,.04)}
+.apparatus:after{inset:8%;border-style:dashed;border-color:rgba(184,255,22,.36);animation:turn-reverse 54s linear infinite}
+.ring-a{inset:19%;border-color:rgba(238,233,226,.26)}
+.ring-b{inset:31%;border-color:rgba(149,56,255,.52);animation:turn 22s linear infinite}
+.ring-c{inset:43%;background:radial-gradient(circle,rgba(184,255,22,.11),rgba(149,56,255,.06) 42%,transparent 69%);box-shadow:0 0 75px rgba(149,56,255,.09)}
+.apparatus .axis{position:absolute;width:1px;height:88%;background:linear-gradient(transparent,var(--lime),transparent);transform:rotate(23deg);opacity:.58}
+.apparatus .axis:nth-of-type(2){transform:rotate(113deg);background:linear-gradient(transparent,var(--purple),transparent)}
+.apparatus .glyph{font-family:var(--typewriter);font-size:clamp(5rem,10vw,10rem);font-weight:400;color:var(--ink);position:relative;z-index:2;text-shadow:3px 0 var(--purple),-2px 0 rgba(184,255,22,.68),0 0 42px rgba(149,56,255,.18)}
+.apparatus .coord{position:absolute;font-family:var(--typewriter);font-size:.55rem;letter-spacing:.12em;color:var(--muted)}
+.apparatus .coord.n{top:4%;left:50%;transform:translateX(-50%)}
+.apparatus .coord.e{right:1%;top:50%;transform:translateY(-50%) rotate(90deg)}
+.apparatus .coord.s{bottom:4%;left:50%;transform:translateX(-50%)}
+.apparatus .coord.w{left:1%;top:50%;transform:translateY(-50%) rotate(-90deg)}
+.apparatus .node{position:absolute;width:9px;height:9px;border-radius:50%;background:var(--lime);top:18%;right:17%;box-shadow:0 0 13px var(--lime),0 0 28px var(--lime)}
+.apparatus .rune{position:absolute;font-family:var(--serif);font-size:1.2rem;color:var(--purple);text-shadow:0 0 12px rgba(149,56,255,.55)}
+.apparatus .rune.r1{top:28%;left:10%}.apparatus .rune.r2{bottom:21%;right:12%}.apparatus .rune.r3{bottom:9%;left:27%;color:var(--lime)}
+.manifesto{padding:clamp(95px,13vw,190px) 0;border-bottom:1px solid var(--line)}
+.manifesto-grid{display:grid;grid-template-columns:minmax(220px,.45fr) minmax(0,1.55fr);gap:clamp(45px,8vw,125px)}
+.manifesto-copy{max-width:1030px}
+.manifesto-copy p{margin:0 0 28px;font-family:var(--serif);font-size:clamp(2rem,4.35vw,4.8rem);font-weight:400;line-height:1.08;letter-spacing:-.042em}
+.manifesto-copy p:last-child{margin-bottom:0}
+.manifesto-copy .quiet{font-size:clamp(1.15rem,1.65vw,1.55rem);line-height:1.55;letter-spacing:0;color:var(--muted);max-width:790px}
+.signature{margin-top:55px;font-family:var(--typewriter);letter-spacing:.14em;font-size:.65rem;color:var(--lime);text-transform:uppercase}
+.section{padding:clamp(100px,12vw,170px) 0;border-bottom:1px solid var(--line);scroll-margin-top:85px}
+.section-head{display:grid;grid-template-columns:minmax(220px,.45fr) minmax(0,1.55fr);gap:clamp(45px,8vw,125px);margin-bottom:clamp(55px,8vw,105px)}
+.section-head h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(3rem,6.2vw,7rem);line-height:.94;letter-spacing:-.058em}
+.section-head p{margin:21px 0 0;max-width:710px;color:var(--muted);font-size:1rem;line-height:1.75}
+.work-layout{display:grid;grid-template-columns:minmax(320px,.72fr) minmax(0,1.28fr);gap:clamp(35px,6vw,92px);align-items:start}
+.work-visual{position:sticky;top:122px;aspect-ratio:4/5;border:1px solid var(--line-strong);overflow:hidden;background:#08070b;isolation:isolate;transition:.45s}
+.work-visual:before,.work-visual:after{content:"";position:absolute;inset:9%;border:1px solid var(--line);transition:.45s}
+.work-visual:after{inset:18%;border-radius:50%;border-color:rgba(149,56,255,.34);animation:turn 34s linear infinite}
+.preview-lines{position:absolute;inset:0;background-image:linear-gradient(rgba(238,233,226,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(238,233,226,.035) 1px,transparent 1px);background-size:38px 38px;mask-image:linear-gradient(135deg,#000,transparent 76%)}
+.preview-disc{position:absolute;width:60%;aspect-ratio:1;border:1px solid rgba(184,255,22,.42);border-radius:50%;top:19%;left:20%;box-shadow:inset 0 0 70px rgba(0,0,0,.35),0 0 70px rgba(184,255,22,.035)}
+.preview-disc:before,.preview-disc:after{content:"";position:absolute;inset:12%;border-radius:50%;border:1px dashed rgba(238,233,226,.16)}
+.preview-disc:after{inset:33%;background:radial-gradient(circle,var(--lime) 0 3px,transparent 4px)}
+.preview-meta{position:absolute;left:30px;right:30px;bottom:28px;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.preview-meta span{font-family:var(--typewriter);font-size:.55rem;letter-spacing:.14em;color:var(--lime);text-transform:uppercase}
+.preview-meta strong{font-family:var(--serif);font-size:clamp(1.6rem,3vw,3rem);font-weight:400;letter-spacing:-.04em;text-align:right}
+.work-visual[data-theme="reactive"]{background:radial-gradient(circle at 50% 37%,rgba(149,56,255,.24),transparent 30%),#09080d}
+.work-visual[data-theme="reactive"] .preview-disc{border-radius:0;transform:rotate(45deg);border-color:rgba(149,56,255,.72)}
+.work-visual[data-theme="game"]{background:linear-gradient(rgba(184,255,22,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(149,56,255,.07) 1px,transparent 1px),#08080b;background-size:30px 30px}
+.work-visual[data-theme="game"] .preview-disc{box-shadow:0 0 0 22px rgba(149,56,255,.09),0 0 0 44px rgba(184,255,22,.045)}
+.work-visual[data-theme="image"]{background:linear-gradient(118deg,transparent 0 44%,rgba(184,255,22,.13) 44.2% 45%,transparent 45.2%),#08070a}
+.work-visual[data-theme="image"] .preview-disc{border-style:dashed}
+.work-visual[data-theme="system"]{background:linear-gradient(rgba(149,56,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(184,255,22,.07) 1px,transparent 1px),#08090a;background-size:24px 24px}
+.work-visual[data-theme="system"] .preview-disc{border-radius:2px;transform:rotate(9deg)}
+.project-list{border-top:1px solid var(--line-strong)}
+.project{display:grid;grid-template-columns:72px minmax(0,1fr) 120px;gap:20px;padding:31px 0;border-bottom:1px solid var(--line);align-items:start;transition:.25s;outline:none}
+.project:hover,.project:focus{padding-left:14px;color:#fff}
+.project-index{font-family:var(--typewriter);font-size:.59rem;letter-spacing:.14em;color:var(--lime);padding-top:7px}
+.project h3{margin:0 0 11px;font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.7vw,4rem);line-height:1;letter-spacing:-.045em}
+.project p{margin:0;max-width:720px;color:var(--muted);font-size:.91rem;line-height:1.65}
+.project-type{font-family:var(--typewriter);font-size:.53rem;letter-spacing:.12em;text-transform:uppercase;color:#85808a;text-align:right;padding-top:8px}
+.init-section{background:#08070a;color:var(--ink);position:relative;overflow:hidden;border-block:1px solid var(--line)}
+.init-section:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 15% 12%,rgba(184,255,22,.055),transparent 26%),radial-gradient(circle at 86% 75%,rgba(149,56,255,.10),transparent 30%)}
+.init-section .shell{position:relative;z-index:1}
+.init-section .eyebrow{color:var(--lime)}
+.init-title{display:grid;grid-template-columns:minmax(220px,.45fr) minmax(0,1.55fr);gap:clamp(45px,8vw,125px);margin-bottom:72px}
+.init-title h2{margin:0;font-family:var(--typewriter);font-size:clamp(4.4rem,10vw,10rem);font-weight:400;letter-spacing:.03em;line-height:.8;color:var(--ink);text-shadow:0 0 36px rgba(149,56,255,.08)}
+.init-title p{margin:10px 0 0;max-width:760px;font-family:var(--serif);font-size:clamp(1.45rem,2.6vw,2.45rem);font-weight:400;line-height:1.35;letter-spacing:-.025em}
+.init-list{border-top:1px solid var(--line-strong)}
+.init-row{display:grid;grid-template-columns:80px minmax(240px,.7fr) minmax(0,1.3fr) 54px;gap:25px;padding:28px 0;border-bottom:1px solid var(--line);align-items:start}
+.init-number{font-family:var(--typewriter);font-size:.66rem;letter-spacing:.12em;color:var(--lime);padding-top:5px}
+.init-row h3{margin:0;font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.8rem);font-weight:400;letter-spacing:-.035em}
+.init-row h3 small{display:block;margin-top:6px;font-family:var(--typewriter);font-size:.48rem;letter-spacing:.11em;text-transform:uppercase;color:#a6a0aa}
+.init-row p{margin:4px 0 0;max-width:650px;font-size:.92rem;line-height:1.65;color:#aaa4ae}
+.init-symbol{font-family:var(--serif);font-size:2.2rem;color:var(--lime);margin-left:auto;text-shadow:0 0 16px rgba(184,255,22,.22)}
+.forms{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line-strong);border-left:1px solid var(--line-strong)}
+.form-card{min-height:390px;padding:32px 27px;border-right:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);display:flex;flex-direction:column;justify-content:space-between;transition:.25s;background:rgba(255,255,255,.008)}
+.form-card:hover{background:linear-gradient(180deg,rgba(184,255,22,.035),rgba(149,56,255,.035))}
+.form-card .symbol{font-family:var(--serif);font-size:3rem;color:var(--lime);text-shadow:0 0 16px rgba(184,255,22,.16)}
+.form-card h3{margin:0 0 13px;font-family:var(--serif);font-size:clamp(2rem,3.3vw,3.6rem);font-weight:400;letter-spacing:-.045em}
+.form-card p{margin:0;color:var(--muted);font-size:.87rem;line-height:1.65}
+.form-card .examples{margin-top:19px;font-family:var(--typewriter);font-size:.5rem;line-height:1.75;letter-spacing:.11em;text-transform:uppercase;color:#827d86}
+.ai-section{min-height:84vh;display:grid;align-items:center;position:relative;overflow:hidden}
+.ai-section:before{content:"";position:absolute;width:min(65vw,870px);aspect-ratio:1;border:1px solid rgba(149,56,255,.26);border-radius:50%;right:-20%;top:50%;transform:translateY(-50%);box-shadow:0 0 0 70px rgba(149,56,255,.022),0 0 0 140px rgba(184,255,22,.012)}
+.ai-copy{max-width:980px;position:relative;z-index:2}
+.ai-copy h2{margin:18px 0 30px;font-family:var(--serif);font-size:clamp(3.7rem,8.4vw,9rem);line-height:.86;font-weight:400;letter-spacing:-.067em}
+.ai-copy h2 em{font-style:italic;color:var(--purple)}
+.ai-copy p{max-width:790px;margin:0;color:#c0bac3;font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,2rem);line-height:1.45;letter-spacing:-.018em}
+.ai-copy .small{margin-top:25px;max-width:670px;color:var(--muted);font-family:var(--sans);font-size:.91rem;line-height:1.7;letter-spacing:0}
+.about-grid{display:grid;grid-template-columns:minmax(220px,.45fr) minmax(0,1.55fr);gap:clamp(45px,8vw,125px)}
+.about-copy{max-width:990px}
+.about-copy h2{margin:0 0 35px;font-family:var(--serif);font-weight:400;font-size:clamp(3rem,6.2vw,7rem);line-height:.94;letter-spacing:-.057em}
+.about-copy p{max-width:820px;margin:0 0 20px;color:#b8b2bb;font-size:1rem;line-height:1.75}
+.contact{padding:clamp(95px,13vw,190px) 0 40px}
+.contact h2{margin:20px 0 43px;max-width:1180px;font-family:var(--serif);font-size:clamp(4rem,9.8vw,10rem);font-weight:400;line-height:.84;letter-spacing:-.072em}
+.contact h2 em{font-style:italic;color:var(--purple)}
+.contact-row{display:flex;justify-content:space-between;align-items:end;gap:40px}
+.contact-links{display:flex;flex-wrap:wrap;gap:26px;font-family:var(--typewriter);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase}
+.contact-links a{border-bottom:1px solid var(--line-strong);padding-bottom:6px}.contact-links a:hover{border-color:var(--lime);color:var(--lime)}
+.footer{margin-top:95px;border-top:1px solid var(--line);padding:22px 0 0;display:flex;justify-content:space-between;gap:20px;color:#69646d;font-family:var(--typewriter);font-size:.52rem;letter-spacing:.12em;text-transform:uppercase}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s ease}.reveal.visible{opacity:1;transform:none}
+@keyframes turn{to{transform:rotate(360deg)}}
+@keyframes turn-reverse{to{transform:rotate(-360deg)}}
+@keyframes glitchA{0%,88%,100%{transform:translate(-2px,0)}89%{transform:translate(7px,-1px)}90%{transform:translate(-6px,2px)}}
+@keyframes glitchB{0%,81%,100%{transform:translate(2px,0)}82%{transform:translate(-5px,1px)}83%{transform:translate(8px,-2px)}}
+@media(max-width:1050px){
+  .hero-grid,.manifesto-grid,.section-head,.init-title,.about-grid{grid-template-columns:1fr}
+  .hero{align-items:center}.apparatus{max-width:480px;justify-self:start;margin-top:30px}
+  .manifesto-grid,.section-head,.init-title,.about-grid{gap:32px}
+  .forms{grid-template-columns:repeat(2,1fr)}
+  .work-layout{grid-template-columns:minmax(260px,.62fr) minmax(0,1.38fr);gap:38px}
+}
+@media(max-width:760px){
+  :root{--pad:18px}.vignette{box-shadow:inset 0 0 80px rgba(0,0,0,.45)}
+  .nav{min-height:70px}.mark{width:34px;height:34px}.wordmark{font-size:.82rem}.wordmark small,.navlinks a:not(.init-link){display:none}.navlinks{gap:0}.init-link{font-size:.54rem;padding:8px 10px!important}
+  .hero{padding-top:108px;min-height:auto}.hero h1{font-size:clamp(3.8rem,18vw,6.2rem)}.hero h1 em{margin-left:18px}.lead{font-size:1.35rem}.apparatus{max-width:330px;margin-inline:auto}
+  .work-layout{grid-template-columns:1fr}.work-visual{position:relative;top:auto;aspect-ratio:5/4;margin-bottom:8px}.project{grid-template-columns:44px minmax(0,1fr);padding:25px 0}.project-type{display:none}.project:hover,.project:focus{padding-left:0}
+  .init-row{grid-template-columns:44px minmax(0,1fr);gap:14px}.init-row p{grid-column:2}.init-symbol{display:none}
+  .forms{grid-template-columns:1fr}.form-card{min-height:320px}
+  .contact-row{align-items:start;flex-direction:column}.footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="vignette" aria-hidden="true"></div><div class="cursor-aura" aria-hidden="true"></div>
+<header class="topbar" id="topbar">
+  <nav class="nav shell" aria-label="Navegación principal">
+    <a class="lockup" href="#top" aria-label="M4CH1N4, inicio">
+      <span class="mark"><img src="/logo_m4ch1n4.svg" alt=""></span>
+      <span class="wordmark">M4CH1N4<small>Digital Alchemist</small></span>
+    </a>
+    <div class="navlinks"><a href="#obra">Obra</a><a href="#init">INIT</a><a href="#practica">Práctica</a><a class="init-link" href="mailto:r@m4ch1n4.xyz?subject=INIT%20PROJECT">INIT PROJECT</a></div>
+  </nav>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy reveal">
+        <span class="eyebrow">M4CH1N4 / CDMX / MMXXVI</span>
+        <h1>Alquimista <em class="glitch" data-text="digital.">digital.</em></h1>
+        <p class="lead">Trabajo entre la imagen, la tecnología, el espacio y la narrativa para dar forma a ideas que todavía no encuentran su lenguaje.</p>
+        <p class="hero-note">No parto de una herramienta. Parto de la posibilidad contenida en un proyecto y construyo la forma precisa para volverla real: una cabina, una película, una instalación, una plataforma, una pantalla reactiva o un sistema de producción con inteligencia artificial.</p>
+        <div class="actions"><a class="button primary" href="#obra">Ver obra <span>↓</span></a><a class="button" href="mailto:r@m4ch1n4.xyz?subject=INIT%20PROJECT">Iniciar un proyecto <span>↗</span></a></div>
+      </div>
+      <div class="apparatus reveal" aria-hidden="true">
+        <span class="ring-a"></span><span class="ring-b"></span><span class="ring-c"></span><span class="axis"></span><span class="axis"></span><span class="node"></span>
+        <span class="rune r1">✦</span><span class="rune r2">🜂</span><span class="rune r3">🜁</span>
+        <span class="coord n">N 19°25′</span><span class="coord e">IMAGE / SPACE</span><span class="coord s">INIT_SEQUENCE</span><span class="coord w">SYSTEM / NARRATIVE</span><span class="glyph glitch" data-text="M">M</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="shell manifesto-grid reveal">
+      <div><span class="eyebrow">Statement</span></div>
+      <div class="manifesto-copy">
+        <p>No me define una técnica ni un formato. Me define la búsqueda de aquello que cada proyecto puede llegar a ser —y el oficio necesario para volverlo real.</p>
+        <p class="quiet">Puedo trabajar con una película, una cabina, un sistema interactivo, una pantalla que responde, un videojuego o una nueva forma de producir imágenes. La forma cambia. La intención permanece.</p>
+        <div class="signature">M4CH1N4 es mi forma de pensar haciendo.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="obra">
+    <div class="shell">
+      <div class="section-head reveal"><div><span class="eyebrow">Selected work</span></div><div><h2>La obra es la evidencia.</h2><p>Proyectos construidos desde distintas materias, bajo una misma dirección.</p></div></div>
+      <div class="work-layout">
+        <div class="work-visual reveal" id="workVisual" data-theme="space" aria-hidden="true"><div class="preview-lines"></div><div class="preview-disc"></div><div class="preview-meta"><span id="workCode">SPACE_01</span><strong id="workName">Radio Disney</strong></div></div>
+        <div class="project-list reveal">
+          <a class="project" href="#contacto" data-theme="space" data-code="SPACE_01" data-name="Radio Disney"><span class="project-index">01</span><div><h3>Radio Disney</h3><p>Diseño y desarrollo de su cabina actual: un espacio donde identidad, operación y tecnología audiovisual forman una sola pieza.</p></div><span class="project-type">Spatial / Broadcast</span></a>
+          <a class="project" href="#contacto" data-theme="reactive" data-code="REACTIVE_02" data-name="SHEIN"><span class="project-index">02</span><div><h3>SHEIN</h3><p>Pantallas y contenido videorreactivo que abandonan la reproducción pasiva y responden al cuerpo frente a la imagen.</p></div><span class="project-type">Reactive image</span></a>
+          <a class="project" href="#contacto" data-theme="game" data-code="SYSTEM_03" data-name="Moctezuma"><span class="project-index">03</span><div><h3>Moctezuma</h3><p>Una plataforma de gamificación creada para transformar la participación y la experiencia cotidiana del trabajador.</p></div><span class="project-type">Gamification</span></a>
+          <a class="project" href="#contacto" data-theme="image" data-code="IMAGE_04" data-name="AstraZeneca"><span class="project-index">04</span><div><h3>AstraZeneca</h3><p>Comerciales y piezas audiovisuales producidos en el encuentro entre dirección de arte, narrativa e inteligencia artificial.</p></div><span class="project-type">Film / AI</span></a>
+          <a class="project" href="#contacto" data-theme="system" data-code="METHOD_05" data-name="AI Advisory"><span class="project-index">05</span><div><h3>AI Advisory</h3><p>Metodologías y flujos de producción para que marcas y equipos integren inteligencia artificial sin perder identidad, continuidad ni control.</p></div><span class="project-type">Direction / Systems</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section init-section" id="init">
+    <div class="shell">
+      <div class="init-title reveal"><div><span class="eyebrow">Method</span></div><div><h2>INIT</h2><p>El método que sostiene mi práctica. No obliga a dos proyectos a recorrer el mismo camino; mantiene el orden mientras cada idea encuentra el suyo.</p></div></div>
+      <div class="init-list reveal">
+        <article class="init-row"><span class="init-number">01</span><h3>Conociéndote<small>Deconstrucción activa del brief</small></h3><p>Escucho y desarmo el problema hasta encontrar la necesidad real detrás de lo que se pidió.</p><span class="init-symbol">🜁</span></article>
+        <article class="init-row"><span class="init-number">02</span><h3>Conceptualización nómada<small>La idea encuentra su centro</small></h3><p>La dejo cruzar imágenes, referencias, tecnologías y posibilidades hasta revelar una dirección capaz de ordenar todo lo demás.</p><span class="init-symbol">🜃</span></article>
+        <article class="init-row"><span class="init-number">03</span><h3>Estrategia adaptativa<small>La forma responde al contexto</small></h3><p>Defino qué debe suceder, para quién y mediante qué combinación de lenguaje, espacio, tecnología y producción.</p><span class="init-symbol">🜂</span></article>
+        <article class="init-row"><span class="init-number">04</span><h3>Producción performativa<small>La idea adquiere cuerpo</small></h3><p>Construyo el proyecto sin perder la intención que lo originó, incluso cuando atraviesa pruebas, cambios y condiciones reales.</p><span class="init-symbol">🜄</span></article>
+        <article class="init-row"><span class="init-number">05</span><h3>Aprendiendo juntos<small>La máquina revela lo que produce</small></h3><p>Observo la respuesta, ajusto el sistema y convierto lo aprendido en materia para su siguiente evolución.</p><span class="init-symbol">🜖</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="section-head reveal"><div><span class="eyebrow">Possible forms</span></div><div><h2>Una idea puede adquirir distintos cuerpos.</h2><p>No obligo al proyecto a entrar en una disciplina. Reúno las herramientas, procesos y personas que necesita para alcanzar su forma.</p></div></div>
+      <div class="forms reveal">
+        <article class="form-card"><span class="symbol">◌</span><div><h3>Imagen</h3><p>Películas, comerciales, motion graphics, animación, 3D y producción dirigida con inteligencia artificial.</p><div class="examples">Film / Motion / 3D / AI image</div></div></article>
+        <article class="form-card"><span class="symbol">⌑</span><div><h3>Espacio</h3><p>Cabinas, instalaciones, escenarios, experiencias y arquitectura efímera donde la narrativa se vuelve presencia.</p><div class="examples">Spatial / Installations / Experience</div></div></article>
+        <article class="form-card"><span class="symbol">⟲</span><div><h3>Interacción</h3><p>Pantallas reactivas, sensores, videojuegos, gamificación e interfaces que convierten al público en parte de la obra.</p><div class="examples">Realtime / Sensors / Games</div></div></article>
+        <article class="form-card"><span class="symbol">⌘</span><div><h3>Sistema</h3><p>Aplicaciones, herramientas digitales, automatizaciones y métodos de producción diseñados alrededor de una necesidad real.</p><div class="examples">Apps / Automation / Workflow</div></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ai-section">
+    <div class="shell"><div class="ai-copy reveal"><span class="eyebrow">Current matter</span><h2>Artificial intelligence, <em>directed.</em></h2><p>La inteligencia artificial amplió las posibilidades de producir imagen. No sustituyó la necesidad de criterio.</p><p class="small">Trabajo con IA como materia de producción: desarrollo comerciales, sistemas visuales y metodologías para que marcas y equipos integren nuevas herramientas sin perder identidad, continuidad ni control.</p></div></div>
+  </section>
+
+  <section class="section" id="practica">
+    <div class="shell about-grid reveal"><div><span class="eyebrow">The practice</span></div><div class="about-copy"><h2>M4CH1N4 es mi firma.</h2><p>Cada proyecto se desarrolla bajo mi dirección. Cuando la escala lo exige, reúno talento de distintas disciplinas para construir un equipo específico alrededor de la idea.</p><p>No existe una estructura fija obligando a todos los proyectos a seguir la misma ruta. Existe un método, una dirección y una red capaz de tomar la forma necesaria.</p></div></div>
+  </section>
+
+  <section class="contact" id="contacto">
+    <div class="shell reveal"><span class="eyebrow">Begin</span><h2>Todo comienza como una <em>posibilidad.</em></h2><div class="contact-row"><a class="button primary" href="mailto:r@m4ch1n4.xyz?subject=INIT%20PROJECT">INIT PROJECT <span>↗</span></a><div class="contact-links"><a href="mailto:r@m4ch1n4.xyz">Email</a><a href="https://www.linkedin.com/in/r-j-m-m/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://www.instagram.com/rj_m_m/" target="_blank" rel="noreferrer">Instagram</a></div></div><footer class="footer"><span>© MMXXVI M4CH1N4 / CDMX</span><span>Image · Space · Technology · Narrative</span></footer></div>
+  </section>
+</main>
+<script>
+const topbar=document.getElementById('topbar');
+const updateBar=()=>topbar.classList.toggle('scrolled',window.scrollY>20);
+updateBar();addEventListener('scroll',updateBar,{passive:true});
+addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--x',e.clientX+'px');document.documentElement.style.setProperty('--y',e.clientY+'px')});
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+const visual=document.getElementById('workVisual');
+const code=document.getElementById('workCode');
+const name=document.getElementById('workName');
+document.querySelectorAll('.project').forEach(project=>{
+  const activate=()=>{visual.dataset.theme=project.dataset.theme;code.textContent=project.dataset.code;name.textContent=project.dataset.name};
+  project.addEventListener('mouseenter',activate);project.addEventListener('focus',activate);
+});
+</script>
+</body>
+</html>
