@@ -1,89 +1,55 @@
-<!DOCTYPE html>
-<html lang="en" >
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Chrome, Firefox OS y Opera -->
-<meta name="theme-color" content="#020202" />
-<!-- Windows Phone -->
-<meta name="msapplication-navbutton-color" content="#020202"/>
- <!-- iOS Safari -->
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json" preload>
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#000000">
+<!doctype html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Manifest</title>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-  <link rel="stylesheet" href="/main.css"><link rel="stylesheet" href="main.css">
- 	<link rel="stylesheet" href="/main.css"><link rel="stylesheet" href="style.css">
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>INIT M4CH1N4</title>
+  <meta name="description" content="M4CH1N4 — alquimia digital, imagen, espacio, tecnología y narrativa.">
+  <meta name="theme-color" content="#000000">
+  <style>
+    *{box-sizing:border-box}
+    html,body{width:100%;height:100%;margin:0;background:#000;overflow:hidden}
+    body.noscroll{overflow:hidden}
+    #demo5{position:fixed;inset:0;width:100%;height:100%;border:0;background:#000;z-index:1}
+    #initial-loader{position:fixed;inset:0;z-index:9999;display:flex;align-items:flex-start;background:#000;padding:2em;overflow:hidden}
+    #loader-text{display:block;color:#1ff042;font-family:Consolas,"Andale Mono","Lucida Console","Courier New",monospace;font-size:.9rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;text-shadow:0 0 2px rgba(31,240,66,.75)}
+    #loader-text:before{content:"> "}
+    #loader-text:after{display:inline-block;vertical-align:-.15em;width:.75em;height:1em;margin-left:5px;background:#1ff042;box-shadow:1px 1px 1px rgba(31,240,66,.65),-1px -1px 1px rgba(31,240,66,.65),1px -1px 1px rgba(31,240,66,.65),-1px 1px 1px rgba(31,240,66,.65);animation:cursor-blink 1.25s steps(1) infinite;content:""}
+    @keyframes cursor-blink{0%,100%{opacity:0}50%{opacity:1}}
+    #main-body{position:fixed;inset:0;z-index:9998;pointer-events:none;overflow:hidden}
+    #main-body canvas#loader{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;display:block!important;z-index:9998!important}
+    .ajax{position:fixed;inset:0;z-index:0;display:grid;place-items:center;overflow:hidden;background:#000;color:#eee;pointer-events:none}
+    .ajax:before,.ajax:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(149,56,255,.5)}
+    .ajax:before{width:min(72vw,760px);aspect-ratio:1;box-shadow:0 0 0 72px rgba(184,255,22,.025),inset 0 0 90px rgba(149,56,255,.055)}
+    .ajax:after{width:min(48vw,500px);aspect-ratio:1;border-style:dashed;border-color:rgba(184,255,22,.42)}
+    .loader-preview{position:relative;z-index:2;text-align:center;font-family:Consolas,"Courier New",monospace;text-transform:uppercase;letter-spacing:.15em}
+    .loader-preview strong{display:block;font-family:Baskerville,Georgia,serif;font-size:clamp(4rem,11vw,10rem);font-weight:400;line-height:.86;letter-spacing:-.06em;text-transform:none}
+    .loader-preview span{display:block;margin-top:1.2rem;color:#b8ff16;font-size:.65rem;letter-spacing:.2em}
+    @media(max-width:641px){#initial-loader{padding:25px}#loader-text{font-size:.6rem}}
+    @media(prefers-reduced-motion:reduce){#loader-text:after{animation:none}}
+  </style>
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div id="initial-loader" class="padded"><span id="loader-text"></span></div>
-<section id="page-structure" class="ajax">
-<div id="main-body">	
-<header class="eliza height-95 black back-block-green-bottom-right">
-	 <span class="back-block-green-top-left"><nav class="move5">
-		
-<<<<<<< Updated upstream
-  
-    
-    <a href="mailto:r.j.m.meneses@gmail.com" class="icon" ><i class="far fa-envelope" target=""></i></a>
-=======
-    <a href="mailto:r@m4ch1n4.xyz" class="icon" ><i class="far fa-envelope" target=""></i></a>
->>>>>>> Stashed changes
-    <a href="https://www.linkedin.com/in/r-j-m-m/" class="icon" ><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.instagram.com/rj_m_m/" class="icon"><i class="fab fa-instagram"></i>
+<body class="noscroll">
+  <iframe id="demo5" src="/demo_5/" title="M4CH1N4 — Alquimista digital"></iframe>
 
+  <div class="ajax" aria-hidden="true">
+    <div class="loader-preview"><strong>M4CH1N4</strong><span>INIT_SEQUENCE / MMXXVI</span></div>
+  </div>
+  <div id="main-body" aria-hidden="true"></div>
+  <div id="initial-loader" class="padded"><span id="loader-text"></span></div>
 
-</a>
-  </nav></span>
- <nav class="padded">
-    <a class="img-svg" href="../index.html" target="_self"><img class="img-svgh" src="https://m4ch1n4.xyz/logo_m4ch1n4.svg" id="m4ch1n4-logo" alt="M4ch1n4_logo"></a>
-  	<h1 class="grid_row" style="align-content: center; font-size: 10vh; margin-top: 2vh; margin-left: 2vh;">Hello!</h1>
-	
-</nav><div class="header-text grid_row padded-horizontal">
-	
-   <h2 class="grid3">I´m a multidisciplinary creative, 
-     specialized 
-     in Mutilmedia communication, 
-     Art Direction &amp; B2B&nbsp;projects.</h2>
-   <h2 class="grid1">   
-                         Your idea, the next project...</h2>
-	
-      <h2 class="grid_row">·You need· it, <br>    -We make it! </h2>
-   
-     </div>
-</header>
- 
-
-
-</div>
-</section> 
-	
-<!---->
-
-	
-<!-- partial -->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/CopyShader.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141552/03_glitch.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/EffectComposer.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/RenderPass.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/ShaderPass.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/MaskPass.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141552/08_texturepass.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/GlitchPass.js"></script><script  src="./script.js"></script>
-<script src="https://kit.fontawesome.com/75b8ed5e4d.js" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/CopyShader.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141552/03_glitch.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/EffectComposer.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/RenderPass.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/ShaderPass.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/MaskPass.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/141552/08_texturepass.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/GlitchPass.js"></script>
+  <script src="./script.backup.js"></script>
 </body>
 </html>
