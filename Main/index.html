@@ -60,7 +60,28 @@
     function installIntro(){
       const win=frame.contentWindow;
       const doc=frame.contentDocument;
-      if(!win||!doc||doc.getElementById('m4-hero-intro-style')) return;
+      if(!win||!doc) return;
+
+      if(!doc.getElementById('m4-practice-type-style')){
+        const practiceStyle=doc.createElement('style');
+        practiceStyle.id='m4-practice-type-style';
+        practiceStyle.textContent=`
+          #practica .about-copy h2 .m4-old-type{
+            font-family:"Old Times American Titling W00","American Typewriter","Nimbus Mono PS","Courier New",monospace;
+            font-weight:400;
+            letter-spacing:.02em;
+            text-transform:uppercase;
+          }
+        `;
+        doc.head.appendChild(practiceStyle);
+
+        const practiceTitle=doc.querySelector('#practica .about-copy h2');
+        if(practiceTitle&&!practiceTitle.querySelector('.m4-old-type')){
+          practiceTitle.innerHTML=practiceTitle.innerHTML.replace('M4CH1N4','<span class="m4-old-type">M4CH1N4</span>');
+        }
+      }
+
+      if(doc.getElementById('m4-hero-intro-style')) return;
 
       const hero=doc.querySelector('.hero');
       const grid=doc.querySelector('.hero-grid');
