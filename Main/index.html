@@ -30,7 +30,7 @@
   </style>
 </head>
 <body class="noscroll">
-  <iframe id="demo5" src="/demo_motion/" title="M4CH1N4 — Alquimista digital"></iframe>
+  <iframe id="demo5" src="/demo_5/" title="M4CH1N4 — Alquimista digital"></iframe>
 
   <div class="ajax" aria-hidden="true">
     <div class="loader-preview"><strong>M4CH1N4</strong><span>INIT_SEQUENCE / MMXXVI</span></div>
@@ -51,5 +51,89 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
   <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-18/GlitchPass.js"></script>
   <script src="./script.backup.js"></script>
+  <script>
+  (()=>{
+    const frame=document.getElementById('demo5');
+    const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+    const smooth=(a,b,v)=>{const t=clamp((v-a)/(b-a));return t*t*(3-2*t)};
+
+    function installIntro(){
+      const win=frame.contentWindow;
+      const doc=frame.contentDocument;
+      if(!win||!doc||doc.getElementById('m4-hero-intro-style')) return;
+
+      const hero=doc.querySelector('.hero');
+      const grid=doc.querySelector('.hero-grid');
+      const copy=doc.querySelector('.hero-copy');
+      const apparatus=doc.querySelector('.apparatus');
+      if(!hero||!grid||!copy||!apparatus) return;
+
+      const reduced=win.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const mobile=win.matchMedia('(max-width:760px)').matches;
+      if(reduced||mobile) return;
+
+      const style=doc.createElement('style');
+      style.id='m4-hero-intro-style';
+      style.textContent=`
+        .hero{height:185svh!important;min-height:0!important;padding:0!important;display:block!important;align-items:initial!important}
+        .hero-grid{position:sticky!important;top:0!important;height:100svh!important;align-items:end!important;padding-top:148px!important;padding-bottom:72px!important}
+        .hero-copy{opacity:0;transform:translate3d(0,58px,0);will-change:opacity,transform}
+        .hero-copy>*{opacity:0;transform:translate3d(0,24px,0);will-change:opacity,transform}
+        .apparatus{will-change:transform,opacity;transform-origin:center center}
+      `;
+      doc.head.appendChild(style);
+
+      copy.classList.add('visible');
+      apparatus.classList.add('visible');
+      const parts=[...copy.children];
+      let natural={x:0,y:0};
+
+      function measure(){
+        apparatus.style.transform='none';
+        const r=apparatus.getBoundingClientRect();
+        natural.x=r.left+r.width/2;
+        natural.y=r.top+r.height/2;
+      }
+
+      function update(){
+        const r=hero.getBoundingClientRect();
+        const distance=Math.max(1,hero.offsetHeight-win.innerHeight);
+        const p=clamp(-r.top/distance);
+        const travel=smooth(.03,.72,p);
+        const dx=win.innerWidth/2-natural.x;
+        const dy=win.innerHeight/2-natural.y;
+        const scale=1.32-(.32*travel);
+
+        apparatus.style.transform=`translate3d(${dx*(1-travel)}px,${dy*(1-travel)}px,0) scale(${scale})`;
+        apparatus.style.opacity=String(1-smooth(.94,1,p)*.08);
+
+        const copyP=smooth(.22,.78,p);
+        copy.style.opacity=String(copyP);
+        copy.style.transform=`translate3d(0,${(1-copyP)*58}px,0)`;
+
+        parts.forEach((el,i)=>{
+          const local=smooth(.20+i*.065,.46+i*.075,p);
+          el.style.opacity=String(local);
+          el.style.transform=`translate3d(0,${(1-local)*24}px,0)`;
+        });
+      }
+
+      let ticking=false;
+      const requestUpdate=()=>{
+        if(ticking) return;
+        ticking=true;
+        win.requestAnimationFrame(()=>{ticking=false;update()});
+      };
+
+      measure();
+      update();
+      win.addEventListener('scroll',requestUpdate,{passive:true});
+      win.addEventListener('resize',()=>{measure();requestUpdate()});
+    }
+
+    frame.addEventListener('load',installIntro);
+    try{installIntro()}catch(error){}
+  })();
+  </script>
 </body>
 </html>
