@@ -1,5 +1,25 @@
-# www.robotstxt.org/
+# M4CH1N4 crawler policy
+# Public portfolio: search engines and AI discovery crawlers may access all public content.
 
-# Allow crawling of all content
 User-agent: *
-Disallow:
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://m4ch1n4.xyz/sitemap.xml
