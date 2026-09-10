@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090909" />
+  <title>M4CH1N4 — Slot Machine</title>
+  <style>
+    @font-face {
+      font-family: "M4OldTimes";
+      src: url("/Old%20Times%20American%20Titling%20W00.ttf") format("truetype");
+      font-display: swap;
+    }
+
+    :root {
+      --black: #090909;
+      --panel: #151515;
+      --paper: #f2eee5;
+      --acid: #33ff33;
+      --purple: #b000bf;
+      --line: #2a2a2a;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 28px 18px;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(51,255,51,.08), transparent 32rem),
+        var(--black);
+      color: var(--paper);
+      font-family: "M4OldTimes", "Courier New", monospace;
+    }
+
+    .machine {
+      width: min(92vw, 540px);
+      position: relative;
+      border: 2px solid var(--paper);
+      background: var(--panel);
+      box-shadow: 12px 12px 0 var(--purple);
+    }
+
+    .marquee {
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      padding: 28px 20px 20px;
+      border-bottom: 2px solid var(--paper);
+      background: var(--acid);
+      color: #000;
+      text-align: center;
+    }
+
+    .logo {
+      margin: 0;
+      font-family: "M4OldTimes", "Courier New", monospace;
+      font-size: clamp(52px, 12vw, 84px);
+      font-weight: 400;
+      line-height: .9;
+      letter-spacing: -.045em;
+      white-space: nowrap;
+    }
+
+    .sub {
+      margin-top: 10px;
+      font-size: 12px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .game {
+      padding: 26px;
+    }
+
+    .reels-shell {
+      position: relative;
+      padding: 10px;
+      border: 2px solid var(--paper);
+      background: #000;
+    }
+
+    .payline {
+      position: absolute;
+      left: 4px;
+      right: 4px;
+      top: 50%;
+      height: 2px;
+      transform: translateY(-1px);
+      background: var(--purple);
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .reels {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .reel {
+      min-width: 0;
+      height: 128px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid #000;
+      background: var(--paper);
+      color: #000;
+      font-size: clamp(34px, 10vw, 60px);
+      line-height: 1;
+      user-select: none;
+      box-shadow: inset 0 0 0 3px rgba(0,0,0,.08);
+    }
+
+    .reel.small { font-size: clamp(23px, 6vw, 38px); }
+
+    .controls {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 10px;
+    }
+
+    .meter,
+    button {
+      min-height: 62px;
+      border: 2px solid var(--paper);
+      border-radius: 0;
+      font: inherit;
+    }
+
+    .meter {
+      display: grid;
+      place-items: center;
+      background: #000;
+      text-align: center;
+      line-height: 1.15;
+      padding: 8px;
+    }
+
+    .meter small {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 9px;
+      letter-spacing: .17em;
+      opacity: .65;
+    }
+
+    #score {
+      font-size: 22px;
+    }
+
+    button {
+      cursor: pointer;
+      background: var(--paper);
+      color: #000;
+      font-size: 24px;
+      letter-spacing: .06em;
+      transition: transform .08s ease, background .15s ease, color .15s ease;
+    }
+
+    button:hover:not(:disabled) {
+      background: var(--acid);
+    }
+
+    button:active:not(:disabled) {
+      transform: translate(3px, 3px);
+    }
+
+    button:disabled {
+      cursor: wait;
+      opacity: .48;
+    }
+
+    .status {
+      min-height: 25px;
+      margin-top: 18px;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hint {
+      margin: 10px 0 0;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 10px;
+      letter-spacing: .12em;
+      opacity: .42;
+      text-transform: uppercase;
+    }
+
+    .machine.win {
+      animation: win .18s steps(2, end) 7;
+    }
+
+    .machine.jackpot {
+      animation: jackpot .14s steps(2, end) 12;
+    }
+
+    @keyframes win {
+      50% { box-shadow: 12px 12px 0 var(--acid); }
+    }
+
+    @keyframes jackpot {
+      50% {
+        transform: translate(-2px, 1px);
+        box-shadow: 12px 12px 0 var(--acid), 22px 22px 0 var(--purple);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 18px 12px; }
+      .machine { box-shadow: 7px 7px 0 var(--purple); }
+      .marquee { min-height: 126px; }
+      .game { padding: 18px; }
+      .reel { height: 105px; }
+      .controls { grid-template-columns: 1fr; }
+      .meter { min-height: 48px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="machine" id="machine" aria-label="M4CH1N4 Slot Machine">
+    <header class="marquee">
+      <div>
+        <h1 class="logo">M4CH1N4</h1>
+        <div class="sub">Slot Machine</div>
+      </div>
+    </header>
+
+    <section class="game">
+      <div class="reels-shell">
+        <div class="payline" aria-hidden="true"></div>
+        <div class="reels" aria-live="polite">
+          <div class="reel" id="r1">7</div>
+          <div class="reel small" id="r2">BAR</div>
+          <div class="reel" id="r3">★</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="meter">
+          <div>
+            <small>SCORE</small>
+            <span id="score">000</span>
+          </div>
+        </div>
+        <button id="spin" type="button">SPIN</button>
+      </div>
+
+      <div class="status" id="status">Press spin</div>
+      <p class="hint">Space bar also works</p>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const symbols = ["7", "BAR", "★", "M4", "+", "X"];
+      const reels = [
+        document.getElementById("r1"),
+        document.getElementById("r2"),
+        document.getElementById("r3")
+      ];
+      const button = document.getElementById("spin");
+      const status = document.getElementById("status");
+      const scoreEl = document.getElementById("score");
+      const machine = document.getElementById("machine");
+
+      let score = 0;
+      let spinning = false;
+
+      const pick = () => symbols[Math.floor(Math.random() * symbols.length)];
+
+      const render = (el, symbol) => {
+        el.textContent = symbol;
+        el.classList.toggle("small", symbol.length > 1);
+      };
+
+      const spinReel = (el, duration) => new Promise(resolve => {
+        const timer = setInterval(() => render(el, pick()), 65);
+        setTimeout(() => {
+          clearInterval(timer);
+          const result = pick();
+          render(el, result);
+          resolve(result);
+        }, duration);
+      });
+
+      const setScore = value => {
+        score = value;
+        scoreEl.textContent = String(score).padStart(3, "0");
+      };
+
+      async function spin() {
+        if (spinning) return;
+        spinning = true;
+        button.disabled = true;
+        button.textContent = "...";
+        status.textContent = "Spinning";
+        machine.classList.remove("win", "jackpot");
+
+        const result = await Promise.all([
+          spinReel(reels[0], 620),
+          spinReel(reels[1], 880),
+          spinReel(reels[2], 1140)
+        ]);
+
+        const [a, b, c] = result;
+
+        if (a === b && b === c) {
+          setScore(score + 100);
+          status.textContent = "M4CH1N4 JACKPOT +100";
+          machine.classList.add("jackpot");
+        } else if (a === b || b === c || a === c) {
+          setScore(score + 20);
+          status.textContent = "Match +20";
+          machine.classList.add("win");
+        } else {
+          status.textContent = "Try again";
+        }
+
+        setTimeout(() => machine.classList.remove("win", "jackpot"), 1700);
+        button.textContent = "SPIN";
+        button.disabled = false;
+        spinning = false;
+      }
+
+      button.addEventListener("click", spin);
+      document.addEventListener("keydown", event => {
+        if (event.code === "Space" && !event.repeat) {
+          event.preventDefault();
+          spin();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
