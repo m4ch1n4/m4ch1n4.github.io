@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#121210">
 <meta name="robots" content="noindex,nofollow">
-<title>XhY — Character Bible / M4CH1N4</title>
-<meta name="description" content="Cuestionario de desarrollo de personaje: la vida de XhY desde su barrio, sus vínculos y sus contradicciones.">
+<title>Biblia XhY | M4CH1N4</title>
+<meta name="description" content="Biblia XhY. Cuestionario de personaje.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -81,12 +81,10 @@ textarea:focus{border-color:var(--acid);box-shadow:inset 3px 0 0 var(--acid)}
 <header class="top"><a class="logo" href="https://m4ch1n4.xyz">m4ch1n4<span>.</span>xyz</a><div class="top-code"><span class="top-dot"></span> CHARACTER DEVELOPMENT // PROJECT XHY</div></header>
 <main class="layout">
   <aside class="hero">
-    <span class="stamp">● Archivo de personaje / 001</span>
-    <div class="eyebrow">M4CH1N4 / STORY & CHARACTER LAB</div>
-    <h1>XhY<span class="period">.</span></h1>
-    <strong>La imagen ya existe. Falta la vida.</strong>
-    <p class="hero-copy">La apariencia de XhY ya está definida. Estas 45 preguntas precisan su procedencia, sus vínculos, sus hábitos y sus conflictos para construir una biblia de personaje coherente.</p>
-    <div class="hero-floor"><div class="tiny">CARÁCTER / BARRIO / IDENTIDAD<br>INFORMACIÓN PARA LA BIBLIA NARRATIVA</div><div class="number">001</div></div>
+    <span class="stamp">M4CH1N4 / PROYECTO XhY</span>
+    
+    <h1 style="font-size:clamp(46px,7vw,112px);letter-spacing:-.08em;line-height:1.02;transform:none;margin:30px 0 28px">Biblia <span style="color:var(--paper)">XhY</span><span class="period">.</span></h1>
+    <div class="hero-floor"><div class="tiny">Cuestionario de personaje</div><div class="number">001</div></div>
   </aside>
   <section class="form-area" aria-label="Formulario de personaje">
     <div class="kicker"><span>FICHA // XhY / TURKEY</span><strong id="stepLabel">01 / 07</strong></div>
@@ -113,13 +111,13 @@ textarea:focus{border-color:var(--acid);box-shadow:inset 3px 0 0 var(--acid)}
 var ENDPOINT = '';
 var STORE = 'm4ch1n4-xy-bible-2026-v1';
 var groups = [
- {name:'Identidad y origen',tag:'ORIGEN',desc:'Primero, el territorio. Antes de hablar de su destino, necesitamos saber dónde empezó todo.',qs:['¿Cuántos años tiene XhY?','¿En qué barrio o colonia nació?','¿En qué barrio vive actualmente?','¿Con quién vive?','¿Cómo es su casa y su entorno?','¿Cómo fue su infancia?','¿Cómo es su relación con su familia?']},
- {name:'Vida cotidiana',tag:'RUTINA',desc:'Una persona se define por los lugares que ocupa y las pequeñas decisiones que toma todos los días.',qs:['¿A qué se dedica? ¿Estudia, trabaja o ambas?','¿Cómo consigue dinero?','¿Qué hace en un día normal?','¿Qué lugares frecuenta?','¿Cómo se transporta por la ciudad?','¿Qué hace los fines de semana?']},
- {name:'Amigos y círculo social',tag:'TRIBU',desc:'Su gente, sus códigos, sus alianzas: ¿quiénes son los que conocen a XhY de verdad?',qs:['¿Con quién se junta XhY?','¿Quién es su mejor amigo o amiga?','¿Cómo conoció a su grupo de amigos?','¿Dónde suelen reunirse?','¿Qué hacen cuando están juntos?','¿Tiene enemigos o personas con las que no se lleva?','¿Qué reputación tiene en su barrio?']},
- {name:'Personalidad y comportamiento',tag:'MENTE',desc:'No basta con describirla. Tenemos que entender sus manías, sus silencios y lo que no quiere que nadie descubra.',qs:['¿Cómo describirías su personalidad?','¿Cómo habla? ¿Utiliza slang, groserías o expresiones de su barrio?','¿Qué cosas la hacen enojar?','¿Qué la hace feliz?','¿Qué inseguridades tiene?','¿Qué secretos guarda?','¿Qué es lo que más le importa en la vida?']},
- {name:'Gustos y estilo',tag:'CÓDIGO',desc:'Su estilo no es solamente ropa: es música, referencias, objetos y la forma en la que se presenta ante el mundo.',qs:['¿Qué música escucha y cuáles son sus artistas favoritos?','¿Cómo define su forma de vestir?','¿Qué marcas, accesorios u objetos le gustan?','¿Qué redes sociales utiliza y qué publica?','¿Qué películas, series o personajes le gustan?','¿Tiene algún vicio, hábito o costumbre particular?']},
- {name:'Relaciones y conflictos',tag:'FRICCIÓN',desc:'Un personaje cobra vida cuando choca con otros. Aquí encontramos sus vínculos y las grietas de su historia.',qs:['¿Tiene pareja o algún interés romántico?','¿Cómo se comporta cuando le gusta alguien?','¿Qué tipo de personas le caen mal?','¿Ha vivido alguna experiencia que la haya marcado?','¿En qué problemas suele meterse?','¿Qué estaría dispuesta a hacer por sus amigos?']},
- {name:'Sueños y futuro',tag:'DESTINO',desc:'¿Quién quiere llegar a ser y qué tendría que perder para conseguirlo? El futuro define el arco de XhY.',qs:['¿Qué quiere conseguir XhY en la vida?','¿Qué es lo que más teme?','¿Qué le gustaría cambiar de su realidad?','¿Cómo se imagina dentro de cinco años?','¿Qué tendría que suceder para que su vida cambiara por completo?','¿Qué es lo que nunca haría, sin importar las circunstancias?']}
+ {name:'Identidad y origen',tag:'ORIGEN',desc:'',qs:['¿Cuántos años tiene XhY?','¿En qué barrio o colonia nació?','¿En qué barrio vive actualmente?','¿Con quién vive?','¿Cómo es su casa y su entorno?','¿Cómo fue su infancia?','¿Cómo es su relación con su familia?']},
+ {name:'Vida cotidiana',tag:'RUTINA',desc:'',qs:['¿A qué se dedica? ¿Estudia, trabaja o ambas?','¿Cómo consigue dinero?','¿Qué hace en un día normal?','¿Qué lugares frecuenta?','¿Cómo se transporta por la ciudad?','¿Qué hace los fines de semana?']},
+ {name:'Amigos y círculo social',tag:'TRIBU',desc:'',qs:['¿Con quién se junta XhY?','¿Quién es su mejor amigo o amiga?','¿Cómo conoció a su grupo de amigos?','¿Dónde suelen reunirse?','¿Qué hacen cuando están juntos?','¿Tiene enemigos o personas con las que no se lleva?','¿Qué reputación tiene en su barrio?']},
+ {name:'Personalidad y comportamiento',tag:'MENTE',desc:'',qs:['¿Cómo describirías su personalidad?','¿Cómo habla? ¿Utiliza slang, groserías o expresiones de su barrio?','¿Qué cosas la hacen enojar?','¿Qué la hace feliz?','¿Qué inseguridades tiene?','¿Qué secretos guarda?','¿Qué es lo que más le importa en la vida?']},
+ {name:'Gustos y estilo',tag:'CÓDIGO',desc:'',qs:['¿Qué música escucha y cuáles son sus artistas favoritos?','¿Cómo define su forma de vestir?','¿Qué marcas, accesorios u objetos le gustan?','¿Qué redes sociales utiliza y qué publica?','¿Qué películas, series o personajes le gustan?','¿Tiene algún vicio, hábito o costumbre particular?']},
+ {name:'Relaciones y conflictos',tag:'FRICCIÓN',desc:'',qs:['¿Tiene pareja o algún interés romántico?','¿Cómo se comporta cuando le gusta alguien?','¿Qué tipo de personas le caen mal?','¿Ha vivido alguna experiencia que la haya marcado?','¿En qué problemas suele meterse?','¿Qué estaría dispuesta a hacer por sus amigos?']},
+ {name:'Sueños y futuro',tag:'DESTINO',desc:'',qs:['¿Qué quiere conseguir XhY en la vida?','¿Qué es lo que más teme?','¿Qué le gustaría cambiar de su realidad?','¿Cómo se imagina dentro de cinco años?','¿Qué tendría que suceder para que su vida cambiara por completo?','¿Qué es lo que nunca haría, sin importar las circunstancias?']}
 ];
 var state={step:0,respondent:'Turkey',answers:{}};
 try{var old=JSON.parse(localStorage.getItem(STORE)||'null');if(old&&typeof old==='object'){state.step=Math.min(6,Math.max(0,Number(old.step)||0));state.respondent=old.respondent||'Turkey';state.answers=old.answers||{};}}catch(e){}
